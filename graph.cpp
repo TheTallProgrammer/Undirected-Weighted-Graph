@@ -6,9 +6,9 @@
 
 // Creates a vector array for Node vertices (v) and another vector with each cell containing two Nodes that will represent one edge (e)
 // Essentially, one vector for vertices and another vector for edges
-Graph::Graph(std::vector<Node> &v, std::vector<std::pair<Node, Node>> &e){
-
-
+Graph::Graph(std::vector<Node> *v, std::vector<std::pair<Node, Node>> *e){
+    std::vector<Node> *v_ = v;
+    std::vector<std::pair<Node, Node>> *e_ = e;
 }
 
 Graph::~Graph(){

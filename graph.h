@@ -14,7 +14,7 @@ class Graph{
 
 public:
 
-    Graph(std::vector<Node> &, std::vector<std::pair<Node, Node>> &);
+    Graph(std::vector<Node> *, std::vector<std::pair<Node, Node>> *);
     ~Graph();
 
     bool isEmpty();
