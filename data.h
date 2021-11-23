@@ -25,5 +25,11 @@ struct Vertex{
     Vertex(Node v, std::set<Node> *a);
 };
 
+struct Edge{
+    Data data;
+    std::string weight;
+    Edge *start, *end;
+};
+
 
 #endif //GRAPH_DATA_H
