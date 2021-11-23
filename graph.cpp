@@ -20,9 +20,7 @@ Graph::~Graph(){
 
 } // End od destructor
 
-bool Graph::isEmpty(){
-
-} // End of isEmpty
+bool Graph::isEmpty(){return count;} // End of isEmpty
 
 int Graph::getNumVerticies(){
 
