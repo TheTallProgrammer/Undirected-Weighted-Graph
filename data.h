@@ -22,7 +22,10 @@ struct Node {
 struct Vertex{
     // Constructor for the struct
     // Uses set to keep the order of the adjacents to the vertex
-    Vertex(Node v, std::set<Node> *a);
+    Vertex(Node v, std::set<Node> *a){
+        Node v_ = v;
+        std::set<Node> a_ = *a;
+    }
 };
 
 struct Edge{
