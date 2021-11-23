@@ -4,8 +4,10 @@
 
 #include "graph.h"
 
-// Creates a vector array for Node vertices (v) and another vector with each cell containing two Nodes that will represent one edge (e)
-// Essentially, one vector for vertices and another vector for edges
+// Creates a vector array for Node vertices (v) and another vector with each cell
+// containing two Nodes that will represent one edge (e). It contains a third vector of type Vertex
+// Which stores the vertex, and the adjacents to that vertex in a set
+// Essentially, one vector for vertices and another vector for edges, and a third vector for vertexes
 Graph::Graph(std::vector<Node> *vctr, std::vector<std::pair<Node, Node>> *e, std::vector<Vertex> *vrtx){
     std::vector<Node> *vctr_ = vctr;
     std::vector<std::pair<Node, Node>> *e_ = e;
