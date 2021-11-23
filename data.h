@@ -6,6 +6,7 @@
 #define GRAPH_DATA_H
 
 #include <string>
+#include <set>
 using std::string;
 
 struct Data {
@@ -16,6 +17,12 @@ struct Data {
 struct Node {
     Data data;
     Node *left, *right;
+};
+
+struct Vertex{
+    // Constructor for the struct
+    // Uses set to keep the order of the adjacents to the vertex
+    Vertex(Node v, std::set<Node> *a);
 };
 
 
