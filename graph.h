@@ -5,22 +5,32 @@
 #ifndef GRAPH_GRAPH_H
 #define GRAPH_GRAPH_H
 #include <iostream>
+#include <utility>      // std::pair, std::make_pair
+#include <vector>
+#include "data.h"
+
+//template<class dType>
 class Graph{
 
 public:
 
-    Graph();
+    Graph(std::vector<Node> &, std::vector<std::pair<Node, Node>> &);
     ~Graph();
 
     bool isEmpty();
-    int numbOfVertices();
+    int getNumVerticies();
     int numOfEdges();
-    bool hasEdge();
+    bool getEdgeWeight();
     bool addVertex();
     bool addEdge();
     bool removeEdge();
     bool removeVertex();
     bool getVertex();
+    void depthFirstSearch();
+    void breadthFirstSearch();
+    //    bool addEdge(dType start, dType end, int edgeWeight);
+    //    bool removeEdge(dType start, dType end);
+    //    bool getEdgeWeight(dType start, dType end);
 
 private:
 
