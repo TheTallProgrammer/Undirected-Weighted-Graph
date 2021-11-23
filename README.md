@@ -1,1 +1,1 @@
-Graph Project
+Undirected weighted graph project.
