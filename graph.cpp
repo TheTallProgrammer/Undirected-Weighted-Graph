@@ -9,11 +9,16 @@
 // Which stores the vertex, and the adjacents to that vertex in a set
 // Essentially, one vector for vertices and another vector for edges, and a third vector for vertexes
 // Keeps to the formula g = (v,e)
-Graph::Graph(std::vector<Node> *vrtcy, std::vector<std::pair<Node, Node>> *e, std::vector<Vertex> *vrtx){
-    std::vector<Node> *vrtcy_ = vrtcy;
-    std::vector<std::pair<Node, Node>> *e_ = e;
-    std::vector<Vertex> *vrtx_ = vrtx;
+//Graph::Graph(std::vector<Node> *vrtcy, std::vector<std::pair<Node, Node>> *e, std::vector<Vertex> *vrtx){
+//    std::vector<Node> *vrtcy_ = vrtcy;
+//    std::vector<std::pair<Node, Node>> *e_ = e;
+//    std::vector<Vertex> *vrtx_ = vrtx;
+//    count = 0;
+//} // End of constructor
+
+Graph::Graph(){
     count = 0;
+
 } // End of constructor
 
 Graph::~Graph(){

@@ -28,9 +28,10 @@ struct Vertex{
     }
 };
 
+template <typename T>
 struct Edge{
     Data data;
-    std::string weight;
+    T weight;
     Edge *start, *end;
 };
 

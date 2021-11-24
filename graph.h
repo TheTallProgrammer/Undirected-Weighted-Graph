@@ -12,29 +12,30 @@
 //template<class dType>
 class Graph{
 
-public:
+    public:
 
-    Graph(std::vector<Node> *, std::vector<std::pair<Node, Node>> *, std::vector<Vertex> *);
-    ~Graph();
+    //    Graph(std::vector<Node> *, std::vector<std::pair<Node, Node>> *, std::vector<Vertex> *);
+        Graph();
+        ~Graph();
 
-    bool isEmpty();
-    int getNumVerticies();
-    int numOfEdges();
-    bool getEdgeWeight();
-    bool addVertex();
-    bool addEdge();
-    bool removeEdge();
-    bool removeVertex();
-    bool getVertex();
-    void depthFirstSearch();
-    void breadthFirstSearch();
-    //    bool addEdge(dType start, dType end, int edgeWeight);
-    //    bool removeEdge(dType start, dType end);
-    //    bool getEdgeWeight(dType start, dType end);
+        bool isEmpty();
+        int getNumVerticies();
+        int numOfEdges();
+        bool getEdgeWeight();
+        bool addVertex();
+        bool addEdge();
+        bool removeEdge();
+        bool removeVertex();
+        bool getVertex();
+        void depthFirstSearch();
+        void breadthFirstSearch();
+        //    bool addEdge(dType start, dType end, int edgeWeight);
+        //    bool removeEdge(dType start, dType end);
+        //    bool getEdgeWeight(dType start, dType end);
 
-private:
+    private:
 
-    int count;
+        int count;
 
 
 
