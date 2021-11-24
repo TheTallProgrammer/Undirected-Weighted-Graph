@@ -48,7 +48,7 @@ int main() {
     std::cout << "\n**TESTING INSERT/REMOVE**" << std::endl;
     for(int i =0; i < testdatasize; i++){
         didInsert = graph.addVertex(ids[i], &strs[i]);
-        std::cout << "insert of id " << ids[i] << " successful? ";
+        std::cout << "insert of vertex with id " << ids[i] << " successful? ";
         if(didInsert){
             std::cout << "yes" << std::endl;
         } else {
@@ -62,7 +62,7 @@ int main() {
 
     for(int i =0; i < testdatasize; i++){
         didRemove = graph.removeVertex(ids[i]);
-        std::cout << "removal of id " << ids[i] << " successful? ";
+        std::cout << "removal of vertex with id " << ids[i] << " successful? ";
         if(didRemove){
             std::cout << "yes" << std::endl;
         } else {
@@ -71,7 +71,7 @@ int main() {
 
         std::pair<int,int> vertexIds = std::make_pair(ids[i], ids[i]);
         didRemove = graph.removeEdge(&vertexIds);
-        std::cout << "removal of id " << ids[i] << " successful? ";
+        std::cout << "removal of edge with vertex ids " << vertexIds.first << ", " << vertexIds.second << " successful? ";
         if(didRemove){
             std::cout << "yes" << std::endl;
         } else {
@@ -84,7 +84,7 @@ int main() {
 
     // Main testing for loop
     std::cout << "\n**TESTING ALL METHODS**" << std::endl;
-    for(int i =0; i < 1000; i++){
+    for(int i =0; i < 10; i++){
         // Picks random index
         rNumIndex = (rand() % testdatasize);
         rNumCase = (rand()%4)+1;
@@ -93,7 +93,7 @@ int main() {
 
         switch(rNumCase){
             case 1:
-                std::cout << "insert of id " << ids[rNumIndex] << " successful? ";
+                std::cout << "insert of vertex with id " << ids[rNumIndex] << " successful? ";
                 didInsert = graph.addVertex(ids[rNumIndex], &strs[rNumIndex]);
                 if(didInsert){
                     std::cout << "yes" << std::endl;
