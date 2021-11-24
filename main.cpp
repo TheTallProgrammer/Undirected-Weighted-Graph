@@ -87,8 +87,7 @@ int main() {
     for(int i =0; i < 1000; i++){
         // Picks random index
         rNumIndex = (rand() % testdatasize);
-        rNumCase = (rand()%3)+1;
-        int location = 0;
+        rNumCase = (rand()%4)+1;
         std::pair<int,int> vertexIds;
         std::cout<<"\nIteration: " << iterationCount << std::endl;
 
@@ -133,6 +132,11 @@ int main() {
                 graph.getEdgeWeight(&vertexIds);
 
                 std::cout << "data from id: " << id << ": " << data << std::endl;
+                break;
+
+            case 4:
+                vertexIds = std::make_pair(ids[rNumIndex], ids[rNumIndex]);
+                graph.addEdge(&vertexIds);
                 break;
         }
         iterationCount++;
