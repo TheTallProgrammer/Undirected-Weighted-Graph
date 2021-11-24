@@ -49,7 +49,7 @@ int main() {
     for(int i =0; i < testdatasize; i++){
         didInsert = graph.addVertex(ids[i], &strs[i]);
         std::cout << "insert of id " << ids[i] << " successful? ";
-        if(didInsert == true){
+        if(didInsert){
             std::cout << "yes" << std::endl;
         } else {
             std::cout << "no" << std::endl;
@@ -63,7 +63,7 @@ int main() {
     for(int i =0; i < testdatasize; i++){
         didRemove = graph.removeVertex(ids[i]);
         std::cout << "removal of id " << ids[i] << " successful? ";
-        if(didRemove == true){
+        if(didRemove){
             std::cout << "yes" << std::endl;
         } else {
             std::cout << "no" << std::endl;
@@ -72,7 +72,7 @@ int main() {
         std::pair<int,int> vertexIds = std::make_pair(ids[i], ids[i]);
         didRemove = graph.removeEdge(&vertexIds);
         std::cout << "removal of id " << ids[i] << " successful? ";
-        if(didRemove == true){
+        if(didRemove){
             std::cout << "yes" << std::endl;
         } else {
             std::cout << "no" << std::endl;
@@ -96,7 +96,7 @@ int main() {
             case 1:
                 std::cout << "insert of id " << ids[rNumIndex] << " successful? ";
                 didInsert = graph.addVertex(ids[rNumIndex], &strs[rNumIndex]);
-                if(didInsert == true){
+                if(didInsert){
                     std::cout << "yes" << std::endl;
                 } else {
                     std::cout << "no" << std::endl;
@@ -108,7 +108,7 @@ int main() {
             case 2:
                 didRemove = graph.removeVertex(ids[rNumIndex]);
                 std::cout << "removal of id " << ids[rNumIndex] << " successful? ";
-                if(didRemove == true){
+                if(didRemove){
                     std::cout << "yes" << std::endl;
                 } else {
                     std::cout << "no" << std::endl;
@@ -117,7 +117,7 @@ int main() {
                 vertexIds = std::make_pair(ids[rNumIndex], ids[rNumIndex]);
                 didRemove = graph.removeEdge(&vertexIds);
                 std::cout << "removal of id " << ids[rNumIndex] << " successful? ";
-                if(didRemove == true){
+                if(didRemove){
                     std::cout << "yes" << std::endl;
                 } else {
                     std::cout << "no" << std::endl;
