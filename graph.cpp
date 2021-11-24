@@ -45,7 +45,7 @@ bool Graph::getEdgeWeight() {
 
 } // End of getEdgeWeight
 
-bool Graph::addVertex(){
+bool Graph::addVertex(int id, string *data){
     bool addedVertex = false;
     return addedVertex;
 

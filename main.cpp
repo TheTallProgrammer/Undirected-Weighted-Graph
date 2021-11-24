@@ -47,8 +47,8 @@ int main() {
     // Testing insert/remove methods
     std::cout << "\n**TESTING INSERT/REMOVE**" << std::endl;
     for(int i =0; i < testdatasize; i++){
-        didInsert = graph.addEntry(ids[i], &strs[i]);
-        std::cout << "insert of id " << ids[i] << " at graph entry " << location << " successful? ";
+        didInsert = graph.addVertex(ids[i], &strs[i]);
+        std::cout << "insert of id " << ids[i] << " successful? ";
         if(didInsert == true){
             std::cout << "yes" << std::endl;
         } else {
@@ -62,7 +62,8 @@ int main() {
 
     for(int i =0; i < testdatasize; i++){
         didRemove = graph.removeEntry(ids[i]);
-        dataString = graph.getEntry(ids[i]);
+        graph.getVertex();
+        graph.getEdgeWeight();
         std::cout << "Retrieving entry of id " << ids[i] << " before removal. Entry: " << dataString << std::endl;
         std::cout << "removal of id " << ids[i] << " at graph entry " << location << " successful? ";
         if(didRemove == true){
@@ -86,8 +87,8 @@ int main() {
 
         switch(rNumCase){
             case 1:
-                std::cout << "insert of id " << ids[rNumIndex]<< " at graph entry " << location << " successful? ";
-                didInsert = graph.addEntry(ids[rNumIndex], &strs[rNumIndex]);
+                std::cout << "insert of id " << ids[rNumIndex] << " successful? ";
+                didInsert = graph.addVertex(ids[rNumIndex], &strs[rNumIndex]);
                 if(didInsert == true){
                     std::cout << "yes" << std::endl;
                 } else {
@@ -111,7 +112,9 @@ int main() {
 
             case 3:
                 id = ids[rNumIndex];
-                data = graph.getEntry(id);
+                graph.getVertex();
+                graph.getEdgeWeight();
+
                 std::cout << "data from id: " << id << ": " << data << std::endl;
                 break;
         }

@@ -22,7 +22,7 @@ class Graph{
         int numOfVertices();
         int numOfEdges();
         bool getEdgeWeight();
-        bool addVertex();
+        bool addVertex(int, string *);
         bool addEdge();
         bool removeEdge();
         bool removeVertex();
