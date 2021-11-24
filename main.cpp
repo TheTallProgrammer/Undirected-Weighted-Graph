@@ -61,15 +61,21 @@ int main() {
     std::string dataString = "";
 
     for(int i =0; i < testdatasize; i++){
-        didRemove = graph.removeEntry(ids[i]);
-        graph.getVertex();
-        graph.getEdgeWeight();
-        std::cout << "Retrieving entry of id " << ids[i] << " before removal. Entry: " << dataString << std::endl;
+        didRemove = graph.removeVertex(ids[i]);
         std::cout << "removal of id " << ids[i] << " successful? ";
         if(didRemove == true){
-            std::cout << "yes\n" << std::endl;
+            std::cout << "yes" << std::endl;
         } else {
-            std::cout << "no\n" << std::endl;
+            std::cout << "no" << std::endl;
+        }
+
+        std::pair<int,int> vertexIds = std::make_pair(ids[i], ids[i]);
+        didRemove = graph.removeEdge(&vertexIds);
+        std::cout << "removal of id " << ids[i] << " successful? ";
+        if(didRemove == true){
+            std::cout << "yes" << std::endl;
+        } else {
+            std::cout << "no" << std::endl;
         }
         std::cout << std::endl;
     }
