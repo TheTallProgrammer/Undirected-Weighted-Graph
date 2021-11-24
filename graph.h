@@ -19,7 +19,7 @@ class Graph{
         ~Graph();
 
         bool isEmpty();
-        int getNumVertices();
+        int numOfVertices();
         int numOfEdges();
         bool getEdgeWeight();
         bool addVertex();
