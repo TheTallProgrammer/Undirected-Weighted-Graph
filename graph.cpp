@@ -57,7 +57,7 @@ bool Graph::addEdge(){
 
 } // End of addEdge
 
-bool Graph::removeEdge(){
+bool Graph::removeEdge(std::pair<int,int> *vertexIds){
     bool removedEdge = false;
     return removedEdge;
 

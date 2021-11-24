@@ -83,6 +83,7 @@ int main() {
         rNumIndex = (rand() % testdatasize);
         rNumCase = (rand()%3)+1;
         int location = 0;
+        std::pair<int,int> vertexIds;
         std::cout<<"\nIteration: " << iterationCount << std::endl;
 
         switch(rNumCase){
@@ -106,7 +107,9 @@ int main() {
                 } else {
                     std::cout << "no" << std::endl;
                 }
-                didRemove = graph.removeEdge(ids[rNumIndex]);
+
+                vertexIds = std::make_pair(ids[rNumIndex], ids[rNumIndex]);
+                didRemove = graph.removeEdge(&vertexIds);
                 std::cout << "removal of id " << ids[rNumIndex] << " successful? ";
                 if(didRemove == true){
                     std::cout << "yes" << std::endl;
