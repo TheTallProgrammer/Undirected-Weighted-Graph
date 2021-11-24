@@ -39,7 +39,7 @@ int Graph::numOfEdges(){
 
 } // End of numOfEdges
 
-bool Graph::getEdgeWeight() {
+bool Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
     bool edgeExists = false;
     return edgeExists;
 

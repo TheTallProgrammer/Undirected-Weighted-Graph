@@ -129,7 +129,8 @@ int main() {
             case 3:
                 id = ids[rNumIndex];
                 graph.getVertex(id);
-                graph.getEdgeWeight();
+                vertexIds = std::make_pair(ids[rNumIndex], ids[rNumIndex]);
+                graph.getEdgeWeight(&vertexIds);
 
                 std::cout << "data from id: " << id << ": " << data << std::endl;
                 break;
