@@ -28,34 +28,50 @@ Graph::~Graph(){
 bool Graph::isEmpty(){return count;} // End of isEmpty
 
 int Graph::getNumVertices(){
+    int numOfVert = 0;
+    return numOfVert;
 
 } // End of getNumVertices
 
 int Graph::numOfEdges(){
+    int numOfEd = 0;
+    return numOfEd;
 
 } // End of numOfEdges
 
 bool Graph::getEdgeWeight() {
+    bool edgeExists = false;
+    return edgeExists;
 
 } // End of getEdgeWeight
 
 bool Graph::addVertex(){
+    bool addedVertex = false;
+    return addedVertex;
 
 } // End of addVertex
 
 bool Graph::addEdge(){
+    bool addedEdge = false;
+    return addedEdge;
 
 } // End of addEdge
 
 bool Graph::removeEdge(){
+    bool removedEdge = false;
+    return removedEdge;
 
 } // End of removeEdge
 
 bool Graph::removeVertex(){
+    bool removedVertex = false;
+    return removedVertex;
 
 } // End of removeVertex
 
 bool Graph::getVertex(){
+    bool gotVertex = false;
+    return gotVertex;
 
 } // End of getVertex
 
