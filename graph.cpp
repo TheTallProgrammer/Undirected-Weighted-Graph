@@ -51,7 +51,7 @@ bool Graph::addVertex(int id, string *data){
 
 } // End of addVertex
 
-bool Graph::addEdge(){
+bool Graph::addEdge(std::pair<int,int> *vertexIds){
     bool addedEdge = false;
     return addedEdge;
 
@@ -69,7 +69,7 @@ bool Graph::removeVertex(int id){
 
 } // End of removeVertex
 
-bool Graph::getVertex(){
+bool Graph::getVertex(int id){
     bool gotVertex = false;
     return gotVertex;
 

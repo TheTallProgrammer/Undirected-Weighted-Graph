@@ -23,10 +23,10 @@ class Graph{
         int numOfEdges();
         bool getEdgeWeight();
         bool addVertex(int, string *);
-        bool addEdge();
+        bool addEdge(std::pair<int,int> *);
         bool removeEdge(std::pair<int,int> *);
         bool removeVertex(int);
-        bool getVertex();
+        bool getVertex(int);
         void depthFirstSearch();
         void breadthFirstSearch();
         //    bool addEdge(dType start, dType end, int edgeWeight);

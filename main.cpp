@@ -128,7 +128,7 @@ int main() {
 
             case 3:
                 id = ids[rNumIndex];
-                graph.getVertex();
+                graph.getVertex(id);
                 graph.getEdgeWeight();
 
                 std::cout << "data from id: " << id << ": " << data << std::endl;
