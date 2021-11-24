@@ -65,7 +65,7 @@ int main() {
         graph.getVertex();
         graph.getEdgeWeight();
         std::cout << "Retrieving entry of id " << ids[i] << " before removal. Entry: " << dataString << std::endl;
-        std::cout << "removal of id " << ids[i] << " at graph entry " << location << " successful? ";
+        std::cout << "removal of id " << ids[i] << " successful? ";
         if(didRemove == true){
             std::cout << "yes\n" << std::endl;
         } else {
@@ -99,8 +99,15 @@ int main() {
                 break;
 
             case 2:
-                didRemove = graph.removeEntry(ids[rNumIndex]);
-                std::cout << "removal of id " << ids[rNumIndex] << " at graph entry " << location << " successful? ";
+                didRemove = graph.removeVertex(ids[rNumIndex]);
+                std::cout << "removal of id " << ids[rNumIndex] << " successful? ";
+                if(didRemove == true){
+                    std::cout << "yes" << std::endl;
+                } else {
+                    std::cout << "no" << std::endl;
+                }
+                didRemove = graph.removeEdge(ids[rNumIndex]);
+                std::cout << "removal of id " << ids[rNumIndex] << " successful? ";
                 if(didRemove == true){
                     std::cout << "yes" << std::endl;
                 } else {

@@ -63,7 +63,7 @@ bool Graph::removeEdge(){
 
 } // End of removeEdge
 
-bool Graph::removeVertex(){
+bool Graph::removeVertex(int id){
     bool removedVertex = false;
     return removedVertex;
 

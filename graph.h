@@ -25,7 +25,7 @@ class Graph{
         bool addVertex(int, string *);
         bool addEdge();
         bool removeEdge();
-        bool removeVertex();
+        bool removeVertex(int);
         bool getVertex();
         void depthFirstSearch();
         void breadthFirstSearch();
