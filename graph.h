@@ -29,6 +29,7 @@ class Graph{
         bool getVertex(int);
         void depthFirstSearch();
         void breadthFirstSearch();
+        void initializeVertex(int *, string *, Vertex *);
         //    bool addEdge(dType start, dType end, int edgeWeight);
         //    bool removeEdge(dType start, dType end);
         //    bool getEdgeWeight(dType start, dType end);

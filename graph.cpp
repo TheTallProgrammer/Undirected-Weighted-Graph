@@ -51,9 +51,7 @@ bool Graph::addVertex(int id, string *data){
     if(id > 0 && data->length() > 0){
         // Allocate new data and assign it the id and the data that are passed into the method
         Vertex *newVertex = new Vertex();
-        newVertex->vertex->data.id = id;
-        newVertex->vertex->data.data = *data;
-        
+        initializeVertex(&id, data, newVertex);
     }
     return addedVertex;
 
@@ -90,3 +88,10 @@ void Graph::depthFirstSearch() {
 void Graph::breadthFirstSearch() {
 
 } // End of breadthFirstSearch
+
+void Graph::initializeVertex(int *id, string *data, Vertex *newVertex){
+    newVertex->vertex->data.id = *id;
+    newVertex->vertex->data.data = *data;
+    newVertex->vertex->left = nullptr;
+    newVertex->vertex->right = nullptr;
+} // End of initializeVertex
