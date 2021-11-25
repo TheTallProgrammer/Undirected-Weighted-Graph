@@ -16,6 +16,7 @@
 //} // End of constructor
 
 Graph::Graph(){
+    root = nullptr;
     count = 0;
     std::vector<Node> *vertices;
     std::vector<std::pair<Node, Node>> *edges;
@@ -47,15 +48,17 @@ bool Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 
 bool Graph::addVertex(int id, string *data){
     bool addedVertex = false;
-    // Checking to see if the data is valid
     if(id > 0 && data->length() > 0){
-        // Allocate new data and assign it the id and the data that are passed into the method
         Node *newVertex = new Node();
         initializeVertex(&id, data, newVertex);
-        addedVertex = true;
+        // Means that there is no existing vertex
+        if(!isEmpty()){
+
+        } else {
+            addedVertex = true;
+        }
     }
     return addedVertex;
-
 } // End of addVertex
 
 bool Graph::addEdge(std::pair<int,int> *vertexIds){

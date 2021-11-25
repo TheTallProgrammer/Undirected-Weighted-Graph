@@ -36,6 +36,7 @@ class Graph{
 
     private:
 
+        Node *root;
         int count;
 };
 
