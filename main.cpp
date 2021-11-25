@@ -43,6 +43,13 @@ int main() {
     // show it is empty by calling getCount and printTable
     std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+    std::cout << "is graph empty? ";
+    if(graph.isEmpty()){
+        std::cout << "yes" << std::endl;
+    } else {
+        std::cout << "no" << std::endl;
+    }
+
 
     // try and put ALL the test data into the graph and show what happens
     // Testing insert/remove methods

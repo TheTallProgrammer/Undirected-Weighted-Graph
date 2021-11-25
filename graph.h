@@ -14,7 +14,6 @@ class Graph{
 
     public:
 
-    //    Graph(std::vector<Node> *, std::vector<std::pair<Node, Node>> *, std::vector<Vertex> *);
         Graph();
         ~Graph();
 
@@ -30,9 +29,8 @@ class Graph{
         void depthFirstSearch();
         void breadthFirstSearch();
         void initializeVertex(int *, string *, Node *);
-        //    bool addEdge(dType start, dType end, int edgeWeight);
-        //    bool removeEdge(dType start, dType end);
-        //    bool getEdgeWeight(dType start, dType end);
+        bool newLocation(Node *, Node *);
+
 
     private:
 
