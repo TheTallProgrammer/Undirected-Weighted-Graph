@@ -55,6 +55,7 @@ bool Graph::addVertex(int id, string *data){
         if(!isEmpty()){
 
         } else {
+            root = newVertex;
             addedVertex = true;
         }
     }
