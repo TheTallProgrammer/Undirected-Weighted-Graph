@@ -17,8 +17,8 @@
 
 Graph::Graph(){
     count = 0;
-    std::vector<Node> *vertices;
-    std::vector<std::pair<Node, Node>> *edges;
+    std::vector<Node> *vertices = {nullptr};
+    std::vector<std::pair<Node, Node>> *edges = {nullptr};
 } // End of constructor
 
 Graph::~Graph(){
