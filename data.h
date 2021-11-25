@@ -11,7 +11,7 @@ using std::string;
 
 struct Data {
     int id;
-    string information;
+    string data;
 };
 
 struct Node {

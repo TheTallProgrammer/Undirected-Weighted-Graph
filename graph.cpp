@@ -47,6 +47,14 @@ bool Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 
 bool Graph::addVertex(int id, string *data){
     bool addedVertex = false;
+    // Checking to see if the data is valid
+    if(id > 0 && data->length() > 0){
+        // Allocate new data and assign it the id and the data that are passed into the method
+        Vertex *newVertex = new Vertex();
+        newVertex->vertex->data.id = id;
+        newVertex->vertex->data.data = *data;
+        
+    }
     return addedVertex;
 
 } // End of addVertex
