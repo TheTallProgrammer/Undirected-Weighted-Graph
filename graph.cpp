@@ -50,8 +50,9 @@ bool Graph::addVertex(int id, string *data){
     // Checking to see if the data is valid
     if(id > 0 && data->length() > 0){
         // Allocate new data and assign it the id and the data that are passed into the method
-        Vertex *newVertex = new Vertex();
+        Node *newVertex = new Node();
         initializeVertex(&id, data, newVertex);
+        addedVertex = true;
     }
     return addedVertex;
 
@@ -89,9 +90,9 @@ void Graph::breadthFirstSearch() {
 
 } // End of breadthFirstSearch
 
-void Graph::initializeVertex(int *id, string *data, Vertex *newVertex){
-    newVertex->vertex->data.id = *id;
-    newVertex->vertex->data.data = *data;
-    newVertex->vertex->left = nullptr;
-    newVertex->vertex->right = nullptr;
+void Graph::initializeVertex(int *id, string *data, Node *newVertex){
+    newVertex->data.id = *id;
+    newVertex->data.data = *data;
+    newVertex->left = nullptr;
+    newVertex->right = nullptr;
 } // End of initializeVertex

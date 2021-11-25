@@ -4,7 +4,8 @@ int main() {
     //seed the rand function
     srand(time(NULL));
 
-    const int testdatasize = BASE + (rand() % OFFSET + 1);
+//    const int testdatasize = BASE + (rand() % OFFSET + 1);
+    const int testdatasize = 10;
     int ids[testdatasize];
     string strs[testdatasize];
 
@@ -28,7 +29,7 @@ int main() {
 
     // -----------End of creating test data-----------
 
-    bool didInsert = false;
+    bool didInsert;
     bool didRemove = false;
     std::string data;
     int rNumCase = 0;
