@@ -5,17 +5,12 @@
 #include "graph.h"
 
 // Creates a vector array for Node vertices (v) and another vector with each cell
-// containing two Nodes that will represent one edge (e). It contains a third vector of type Vertex
+// containing two Nodes that will represent one edge (e)
 // Which stores the vertex, and the adjacents to that vertex in a set
-// Essentially, one vector for vertices and another vector for edges, and a third vector for vertexes
+// Essentially, one vector for vertices and another vector for edges
 // Keeps to the formula g = (v,e)
-//Graph::Graph(std::vector<Node> *vrtcy, std::vector<std::pair<Node, Node>> *e){
-//    std::vector<Node> *vrtcy_ = vrtcy;
-//    std::vector<std::pair<Node, Node>> *e_ = e;
-//    count = 0;
-//} // End of constructor
-
 Graph::Graph(){
+    root = nullptr;
     count = 0;
     std::vector<Node> *vertices = {nullptr};
     std::vector<std::pair<Node, Node>> *edges = {nullptr};
@@ -26,7 +21,12 @@ Graph::~Graph(){
 
 } // End od destructor
 
-bool Graph::isEmpty(){return count;} // End of isEmpty
+bool Graph::isEmpty(){
+    bool isEmpty = false;
+    if (count == 0)
+        isEmpty = true;
+    return isEmpty;
+} // End of isEmpty
 
 int Graph::numOfVertices(){
     int numOfVert = 0;
@@ -48,8 +48,19 @@ bool Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 
 bool Graph::addVertex(int id, string *data){
     bool addedVertex = false;
+    if(id > 0 && data->length() > 0){
+        Node *newVertex = new Node();
+        initializeVertex(&id, data, newVertex);
+        // Means that there is no existing vertex and a new spot is needed
+        if(isEmpty()){
+            root = newVertex;
+            count++;
+            addedVertex = true;
+        } else {
+            addedVertex = newLocation(root, newVertex);
+        }
+    }
     return addedVertex;
-
 } // End of addVertex
 
 bool Graph::addEdge(std::pair<int,int> *vertexIds){
@@ -83,3 +94,15 @@ void Graph::depthFirstSearch() {
 void Graph::breadthFirstSearch() {
 
 } // End of breadthFirstSearch
+
+void Graph::initializeVertex(int *id, string *data, Node *newVertex){
+    newVertex->data.id = *id;
+    newVertex->data.data = *data;
+    newVertex->left = nullptr;
+    newVertex->right = nullptr;
+} // End of initializeVertex
+
+bool Graph::newLocation(Node *root, Node *newVertex) {
+    std::cout << "picking a new location for the new vertex" << std::endl;
+
+} // End of newLocation

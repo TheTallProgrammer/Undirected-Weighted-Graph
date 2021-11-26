@@ -11,7 +11,7 @@ using std::string;
 
 struct Data {
     int id;
-    string information;
+    string data;
 };
 
 struct Node {
@@ -19,14 +19,14 @@ struct Node {
     Node *left, *right;
 };
 
-struct Vertex{
-    Node *vertex;
-};
+//struct Vertex{
+//    Node *vertex;
+//};
 
 template <typename T>
 struct Edge{
     T weight;
-    Vertex *start, *end;
+    Node *start, *end;
 };
 
 

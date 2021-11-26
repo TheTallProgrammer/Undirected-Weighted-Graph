@@ -4,7 +4,8 @@ int main() {
     //seed the rand function
     srand(time(NULL));
 
-    const int testdatasize = BASE + (rand() % OFFSET + 1);
+//    const int testdatasize = BASE + (rand() % OFFSET + 1);
+    const int testdatasize = 10;
     int ids[testdatasize];
     string strs[testdatasize];
 
@@ -28,7 +29,7 @@ int main() {
 
     // -----------End of creating test data-----------
 
-    bool didInsert = false;
+    bool didInsert;
     bool didRemove = false;
     std::string data;
     int rNumCase = 0;
@@ -42,6 +43,13 @@ int main() {
     // show it is empty by calling getCount and printTable
     std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+    std::cout << "is graph empty? ";
+    if(graph.isEmpty()){
+        std::cout << "yes" << std::endl;
+    } else {
+        std::cout << "no" << std::endl;
+    }
+
 
     // try and put ALL the test data into the graph and show what happens
     // Testing insert/remove methods
@@ -60,89 +68,93 @@ int main() {
 
     std::string dataString = "";
 
-    for(int i =0; i < testdatasize; i++){
-        didRemove = graph.removeVertex(ids[i]);
-        std::cout << "removal of vertex with id " << ids[i] << " successful? ";
-        if(didRemove){
-            std::cout << "yes" << std::endl;
-        } else {
-            std::cout << "no" << std::endl;
-        }
-
-        std::pair<int,int> vertexIds = std::make_pair(ids[i], ids[i]);
-        didRemove = graph.removeEdge(&vertexIds);
-        std::cout << "removal of edge with vertex ids " << vertexIds.first << ", " << vertexIds.second << " successful? ";
-        if(didRemove){
-            std::cout << "yes" << std::endl;
-        } else {
-            std::cout << "no" << std::endl;
-        }
-        std::cout << std::endl;
-    }
-    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
-    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
-
-    // Main testing for loop
-    std::cout << "\n**TESTING ALL METHODS**" << std::endl;
-    for(int i =0; i < 10; i++){
-        // Picks random index
-        rNumIndex = (rand() % testdatasize);
-        rNumCase = (rand()%4)+1;
-        std::pair<int,int> vertexIds;
-        std::cout<<"\nIteration: " << iterationCount << std::endl;
-
-        switch(rNumCase){
-            case 1:
-                std::cout << "insert of vertex with id " << ids[rNumIndex] << " successful? ";
-                didInsert = graph.addVertex(ids[rNumIndex], &strs[rNumIndex]);
-                if(didInsert){
-                    std::cout << "yes" << std::endl;
-                } else {
-                    std::cout << "no" << std::endl;
-                }
-                std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
-                std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
-                break;
-
-            case 2:
-                didRemove = graph.removeVertex(ids[rNumIndex]);
-                std::cout << "removal of id " << ids[rNumIndex] << " successful? ";
-                if(didRemove){
-                    std::cout << "yes" << std::endl;
-                } else {
-                    std::cout << "no" << std::endl;
-                }
-
-                vertexIds = std::make_pair(ids[rNumIndex], ids[rNumIndex]);
-                didRemove = graph.removeEdge(&vertexIds);
-                std::cout << "removal of id " << ids[rNumIndex] << " successful? ";
-                if(didRemove){
-                    std::cout << "yes" << std::endl;
-                } else {
-                    std::cout << "no" << std::endl;
-                }
-                std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
-                std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
-                break;
-
-            case 3:
-                id = ids[rNumIndex];
-                graph.getVertex(id);
-                vertexIds = std::make_pair(ids[rNumIndex], ids[rNumIndex]);
-                graph.getEdgeWeight(&vertexIds);
-
-                std::cout << "data from id: " << id << ": " << data << std::endl;
-                break;
-
-            case 4:
-                vertexIds = std::make_pair(ids[rNumIndex], ids[rNumIndex]);
-                graph.addEdge(&vertexIds);
-                break;
-        }
-        iterationCount++;
-    }
-
-    std::cout << "\n***************\nTESTS CONCLUDED\n***************" << std::endl;
+//    for(int i =0; i < testdatasize; i++){
+//        didRemove = graph.removeVertex(ids[i]);
+//        std::cout << "removal of vertex with id " << ids[i] << " successful? ";
+//        if(didRemove){
+//            std::cout << "yes" << std::endl;
+//        } else {
+//            std::cout << "no" << std::endl;
+//        }
+//
+//        std::pair<int,int> vertexIds = std::make_pair(ids[i], ids[i]);
+//        didRemove = graph.removeEdge(&vertexIds);
+//        std::cout << "removal of edge with vertex ids " << vertexIds.first << ", " << vertexIds.second << " successful? ";
+//        if(didRemove){
+//            std::cout << "yes" << std::endl;
+//        } else {
+//            std::cout << "no" << std::endl;
+//        }
+//        std::cout << std::endl;
+//    }
+//    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+//    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+//
+//    // Main testing for loop
+//    std::cout << "\n**TESTING ALL METHODS**" << std::endl;
+//    for(int i =0; i < 10; i++){
+//        // Picks random index
+//        rNumIndex = (rand() % testdatasize);
+//        rNumCase = (rand()%4)+1;
+//        std::pair<int,int> vertexIds;
+//        std::cout<<"\nIteration: " << iterationCount << std::endl;
+//
+//        switch(rNumCase){
+//            case 1:
+//                std::cout << "case 1" << std::endl;
+//                std::cout << "insert of vertex with id " << ids[rNumIndex] << " successful? ";
+//                didInsert = graph.addVertex(ids[rNumIndex], &strs[rNumIndex]);
+//                if(didInsert){
+//                    std::cout << "yes" << std::endl;
+//                } else {
+//                    std::cout << "no" << std::endl;
+//                }
+//                std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+//                std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+//                break;
+//
+//            case 2:
+//                std::cout << "case 2" << std::endl;
+//                didRemove = graph.removeVertex(ids[rNumIndex]);
+//                std::cout << "removal of id " << ids[rNumIndex] << " successful? ";
+//                if(didRemove){
+//                    std::cout << "yes" << std::endl;
+//                } else {
+//                    std::cout << "no" << std::endl;
+//                }
+//
+//                vertexIds = std::make_pair(ids[rNumIndex], ids[rNumIndex]);
+//                didRemove = graph.removeEdge(&vertexIds);
+//                std::cout << "removal of id " << ids[rNumIndex] << " successful? ";
+//                if(didRemove){
+//                    std::cout << "yes" << std::endl;
+//                } else {
+//                    std::cout << "no" << std::endl;
+//                }
+//                std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+//                std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+//                break;
+//
+//            case 3:
+//                std::cout << "case 3" << std::endl;
+//                id = ids[rNumIndex];
+//                graph.getVertex(id);
+//                vertexIds = std::make_pair(ids[rNumIndex], ids[rNumIndex]);
+//                graph.getEdgeWeight(&vertexIds);
+//
+//                std::cout << "data from id: " << id << ": " << data << std::endl;
+//                break;
+//
+//            case 4:
+//                std::cout << "case 4" << std::endl;
+//                vertexIds = std::make_pair(ids[rNumIndex], ids[rNumIndex]);
+//                graph.addEdge(&vertexIds);
+//                break;
+//        }
+//        iterationCount++;
+//    }
+//
+//    std::cout << "\n***************\nTESTS CONCLUDED\n***************" << std::endl;
 
 
     return 0;
