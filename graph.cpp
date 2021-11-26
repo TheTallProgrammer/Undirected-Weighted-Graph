@@ -28,11 +28,7 @@ bool Graph::isEmpty(){
     return isEmpty;
 } // End of isEmpty
 
-int Graph::numOfVertices(){
-    int numOfVert = 0;
-    return numOfVert;
-
-} // End of getNumVertices
+int Graph::numOfVertices(){return count;} // End of getNumVertices
 
 int Graph::numOfEdges(){
     int numOfEd = 0;
@@ -103,6 +99,7 @@ void Graph::initializeVertex(int *id, string *data, Node *newVertex){
 } // End of initializeVertex
 
 bool Graph::newLocation(Node *root, Node *newVertex) {
+    bool addedLocation = false;
     std::cout << "picking a new location for the new vertex" << std::endl;
-
+    return addedLocation;
 } // End of newLocation
