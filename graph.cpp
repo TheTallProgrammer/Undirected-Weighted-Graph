@@ -12,11 +12,10 @@
 Graph::Graph(){
     root = nullptr;
     count = 0;
+    adjMatSize = count*count;
     std::vector<Node> *vertices = {nullptr};
     std::vector<std::pair<Node, Node>> *edges = {nullptr};
-    // Creating a 2d vector array for the adjMatrix
-    std::vector<std::vector<Node>> adjMatrix;
-
+    std::vector<std::vector<Node>> adjMatrix = {{}};
 } // End of constructor
 
 Graph::~Graph(){
@@ -53,6 +52,7 @@ bool Graph::addVertex(int id, string *data){
         if(isEmpty()){
             root = newVertex;
             count++;
+            adjMatrix.resize(adjMatSize);
             addedVertex = true;
         } else {
             addedVertex = newLocation(root, newVertex);

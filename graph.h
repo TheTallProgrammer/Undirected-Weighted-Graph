@@ -7,6 +7,7 @@
 #include <iostream>
 #include <utility>      // std::pair, std::make_pair
 #include <vector>
+#include<bits/stdc++.h>
 #include "data.h"
 
 //template<class dType>
@@ -35,7 +36,9 @@ class Graph{
     private:
 
         Node *root;
-        int count;
+        // Creating a 2d vector array for the adjMatrix
+        std::vector<std::vector<Node>> adjMatrix;
+        int count, adjMatSize;
 };
 
 #endif //GRAPH_GRAPH_H
