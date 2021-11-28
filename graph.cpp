@@ -13,9 +13,10 @@ Graph::Graph(){
     root = nullptr;
     count = 0;
     adjMatSize = count*count;
+    const int initialSize = 0;
     std::vector<Node> *vertices = {nullptr};
     std::vector<std::pair<Node, Node>> *edges = {nullptr};
-    std::vector<std::vector<Node>> adjMatrix = {{}};
+    std::vector<std::vector<Node>> adjMatrix{initialSize, std::vector<Node>(initialSize)};
 } // End of constructor
 
 Graph::~Graph(){
