@@ -14,6 +14,8 @@ Graph::Graph(){
     count = 0;
     std::vector<Node> *vertices = {nullptr};
     std::vector<std::pair<Node, Node>> *edges = {nullptr};
+    // Creating a 2d vector array for the adjMatrix
+    std::vector<std::vector<Node>> adjMatrix;
 
 } // End of constructor
 
