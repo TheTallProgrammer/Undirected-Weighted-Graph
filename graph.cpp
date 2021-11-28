@@ -52,7 +52,7 @@ bool Graph::addVertex(int id, string *data){
         if(isEmpty()){
             root = newVertex;
             count++;
-            adjMatrix.resize(adjMatSize);
+            addToList(newVertex);
             addedVertex = true;
         } else {
             addedVertex = newLocation(root, newVertex);
@@ -60,6 +60,17 @@ bool Graph::addVertex(int id, string *data){
     }
     return addedVertex;
 } // End of addVertex
+
+void Graph::addToList(Node *newVertex){
+    adjMatSize = count*count;
+    adjMatrix.resize(adjMatSize);
+    for(int i = 0; i < adjMatrix.size(); i++){
+        std::vector<Node> temp;
+        for(int j = 0; j < adjMatrix.size();j++){
+//            temp.push_back(i * adjMatrix.size() + 1, newVertex);
+        }
+    }
+} // End of add to list
 
 bool Graph::addEdge(std::pair<int,int> *vertexIds){
     bool addedEdge = false;
