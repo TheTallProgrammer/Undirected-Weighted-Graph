@@ -14,8 +14,8 @@ Graph::Graph(){
     count = 0;
     adjMatSize = count*count;
     const int initialSize = 0;
-    std::vector<Node> *vertices = {nullptr};
-    std::vector<std::pair<Node, Node>> *edges = {nullptr};
+    std::vector<Node> *vertices = {};
+    std::vector<std::pair<Node, Node>> *edges = {};
     std::vector<std::vector<Node>> adjMatrix{initialSize, std::vector<Node>(initialSize)};
 } // End of constructor
 
@@ -65,6 +65,7 @@ bool Graph::addVertex(int id, string *data){
 void Graph::addToList(Node *newVertex){
     adjMatSize = count*count;
     adjMatrix.resize(adjMatSize);
+    vertices
     for(int i = 0; i < adjMatrix.size(); i++){
         std::vector<Node> temp;
         for(int j = 0; j < adjMatrix.size();j++){
