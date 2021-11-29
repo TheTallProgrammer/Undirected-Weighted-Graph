@@ -87,10 +87,13 @@ bool Graph::removeVertex(int id){
 
 } // End of removeVertex
 
-bool Graph::getVertex(int id, Node *vertex){
+bool Graph::getVertex(int id, Node &temp){
     bool gotVertex = false;
-    for(int i =0; i < vertices.size(); i++){
+    for(int i =0; i < count; i++){
         if(vertices[i].data.id == id){
+            std::cout << vertices[i].data.id << std::endl;
+            temp.data.id = vertices[i].data.id;
+            temp.data.data = vertices[i].data.data;
             gotVertex = true;
         }
     }
