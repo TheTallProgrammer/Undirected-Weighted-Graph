@@ -55,7 +55,7 @@ bool Graph::addVertex(int id, string *data){
             count++;
             adjMatSize = count*count;
             adjMatrix.resize(adjMatSize);
-            vertices->push_back(*newVertex);
+            vertices.push_back(*newVertex);
             addedVertex = true;
         } else {
             addedVertex = newLocation(root, newVertex);
@@ -87,8 +87,13 @@ bool Graph::removeVertex(int id){
 
 } // End of removeVertex
 
-bool Graph::getVertex(int id){
+bool Graph::getVertex(int id, Node *vertex){
     bool gotVertex = false;
+    for(int i =0; i < vertices.size(); i++){
+        if(vertices[i].data.id == id){
+            gotVertex = true;
+        }
+    }
     return gotVertex;
 
 } // End of getVertex

@@ -26,7 +26,7 @@ class Graph{
         bool addEdge(std::pair<int,int> *);
         bool removeEdge(std::pair<int,int> *);
         bool removeVertex(int);
-        bool getVertex(int);
+        bool getVertex(int, Node *);
         void depthFirstSearch();
         void breadthFirstSearch();
         void initializeVertex(int *, string *, Node *);
@@ -39,8 +39,8 @@ class Graph{
         Node *root;
         // Creating a 2d vector array for the adjMatrix
         std::vector<std::vector<Node>> adjMatrix;
-        std::vector<Node> *vertices;
-        std::vector<std::pair<Node, Node>> *edges;
+        std::vector<Node> vertices;
+        std::vector<std::pair<Node, Node>> edges;
         int count, adjMatSize;
 };
 
