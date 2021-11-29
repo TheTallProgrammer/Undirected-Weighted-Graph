@@ -14,9 +14,9 @@ Graph::Graph(){
     count = 0;
     adjMatSize = count*count;
     const int initialSize = 0;
-    std::vector<Node> *vertices = {};
-    std::vector<std::pair<Node, Node>> *edges = {};
-    std::vector<std::vector<Node>> adjMatrix{initialSize, std::vector<Node>(initialSize)};
+    vertices = {};
+    edges = {};
+    adjMatrix = {initialSize, std::vector<Node>(initialSize)};
 } // End of constructor
 
 Graph::~Graph(){
