@@ -64,8 +64,16 @@ bool Graph::addVertex(int id, string *data){
 } // End of addVertex
 
 void Graph::addToList(Node *newVertex){
-
-
+    for(int i = 0; i < adjMatSize; i++){
+        for(int j = 0; j < adjMatSize; j++){
+            if(i==count-1 && j!=count-1){
+                adjMatrix[i][j] = *newVertex;
+            }
+            if(j==count-1&&i!=count-1){
+                adjMatrix[i][j] = *newVertex;
+            }
+        }
+    }
 } // End of add to list
 
 bool Graph::addEdge(std::pair<int,int> *vertexIds){
@@ -110,8 +118,7 @@ void Graph::breadthFirstSearch() {
 void Graph::initializeVertex(int *id, string *data, Node *newVertex){
     newVertex->data.id = *id;
     newVertex->data.data = *data;
-    newVertex->left = nullptr;
-    newVertex->right = nullptr;
+    newVertex->next = nullptr;
 } // End of initializeVertex
 
 bool Graph::newLocation(Node *root, Node *newVertex) {
