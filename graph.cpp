@@ -49,7 +49,6 @@ bool Graph::addVertex(int id, string *data){
     if(id > 0 && data->length() > 0){
         Node *newVertex = new Node();
         initializeVertex(&id, data, newVertex);
-        // Means that there is no existing vertex and a new spot is needed
         if(isEmpty()){
             root = newVertex;
             count++;
