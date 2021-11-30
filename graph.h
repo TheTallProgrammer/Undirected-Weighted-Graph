@@ -31,7 +31,8 @@ class Graph{
         void breadthFirstSearch();
         void initializeVertex(int *, string *, Node *);
         bool newLocation(Node *, Node *);
-        void addToList(Node *);
+        void addToMatrix(Node *);
+        void printMatrix();
 
 
     private:

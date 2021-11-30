@@ -68,23 +68,47 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     temp->next = newVertex;
     newVertex->prev = temp;
     newVertex->next = nullptr;
-    addToList(newVertex);
+    addToMatrix(newVertex);
     return true;
 } // End of newLocation
 
-void Graph::addToList(Node *newVertex){
+void Graph::addToMatrix(Node *newVertex){
     for(int i = 0; i < adjMatSize; i++){
         for(int j = 0; j < adjMatSize; j++){
             if(i==count-1 && j!=count-1){
+                std::cout << "if" << std::endl;
                 adjMatrix[i][j] = *newVertex;
                 edgeCount++;
             }
-            if(j==count-1&&i!=count-1){
+            else if(j==count-1&&i!=count-1){
+                std::cout << "else if" << std::endl;
                 adjMatrix[i][j] = *newVertex;
+            }
+            else{
+                // Filling in empty spots with blank nodes
+                Node *temp = new Node();
+                temp->data.data = "N/A";
+                temp->data.id = i;
+                std::cout << "else" << std::endl;
+                adjMatrix[i][j] = *temp;
             }
         }
     }
 } // End of add to list
+
+void Graph::printMatrix(){
+    std::cout << "count: " << count << std::endl;
+    for(int i =0; i < count; i++){
+        std::cout << "loop 1" << std::endl;
+        for(int j = 0; j < count; j++){
+            std::cout << "loop 2" << std::endl;
+            if(adjMatrix[i][j].data.id > 0){
+                std::cout << "| " << adjMatrix[i][j].data.data << " | ";
+            }
+        }
+        std::cout << std::endl;
+    }
+} // End of printMatrix
 
 bool Graph::addEdge(std::pair<int,int> *vertexIds){
     bool addedEdge = false;

@@ -76,6 +76,7 @@ int main() {
         std::cout << "no" << std::endl;
     }
 
+    graph.printMatrix();
 
     std::string dataString = "";
 
