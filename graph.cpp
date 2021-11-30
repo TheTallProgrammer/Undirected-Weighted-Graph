@@ -63,6 +63,19 @@ bool Graph::addVertex(int id, string *data){
     return addedVertex;
 } // End of addVertex
 
+bool Graph::newLocation(Node *root, Node *newVertex) {
+    bool addedLocation = false;
+    Node *temp = root;
+    while((root!= nullptr) && temp->next!= nullptr){
+        temp = temp->next;
+    }
+    count++;
+    temp->next = newVertex;
+    newVertex->next = nullptr;
+    addToList(newVertex);
+    return addedLocation;
+} // End of newLocation
+
 void Graph::addToList(Node *newVertex){
     for(int i = 0; i < adjMatSize; i++){
         for(int j = 0; j < adjMatSize; j++){
@@ -121,8 +134,4 @@ void Graph::initializeVertex(int *id, string *data, Node *newVertex){
     newVertex->next = nullptr;
 } // End of initializeVertex
 
-bool Graph::newLocation(Node *root, Node *newVertex) {
-    bool addedLocation = false;
-    std::cout << "picking a new location for the new vertex" << std::endl;
-    return addedLocation;
-} // End of newLocation
+
