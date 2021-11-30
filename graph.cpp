@@ -11,7 +11,7 @@
 // Keeps to the formula g = (v,e)
 Graph::Graph(){
     root = nullptr;
-    count = 0;
+    count = 0, edgeCount = 0;
     adjMatSize = count*count;
     const int initialSize = 0;
     vertices = {};
@@ -21,7 +21,7 @@ Graph::Graph(){
 
 Graph::~Graph(){
 
-} // End od destructor
+} // End of destructor
 
 bool Graph::isEmpty(){
     bool isEmpty = false;
@@ -32,11 +32,7 @@ bool Graph::isEmpty(){
 
 int Graph::numOfVertices(){return count;} // End of getNumVertices
 
-int Graph::numOfEdges(){
-    int numOfEd = 0;
-    return numOfEd;
-
-} // End of numOfEdges
+int Graph::numOfEdges(){return edgeCount;} // End of numOfEdges
 
 bool Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
     bool edgeExists = false;
@@ -64,16 +60,16 @@ bool Graph::addVertex(int id, string *data){
 } // End of addVertex
 
 bool Graph::newLocation(Node *root, Node *newVertex) {
-    bool addedLocation = false;
     Node *temp = root;
     while((root!= nullptr) && temp->next!= nullptr){
         temp = temp->next;
     }
     count++;
     temp->next = newVertex;
+    newVertex->prev = temp;
     newVertex->next = nullptr;
     addToList(newVertex);
-    return addedLocation;
+    return true;
 } // End of newLocation
 
 void Graph::addToList(Node *newVertex){
@@ -81,6 +77,7 @@ void Graph::addToList(Node *newVertex){
         for(int j = 0; j < adjMatSize; j++){
             if(i==count-1 && j!=count-1){
                 adjMatrix[i][j] = *newVertex;
+                edgeCount++;
             }
             if(j==count-1&&i!=count-1){
                 adjMatrix[i][j] = *newVertex;
@@ -132,6 +129,7 @@ void Graph::initializeVertex(int *id, string *data, Node *newVertex){
     newVertex->data.id = *id;
     newVertex->data.data = *data;
     newVertex->next = nullptr;
+    newVertex->prev = nullptr;
 } // End of initializeVertex
 
 

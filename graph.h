@@ -41,7 +41,7 @@ class Graph{
         std::vector<std::vector<Node>> adjMatrix;
         std::vector<Node> vertices;
         std::vector<std::pair<Node, Node>> edges;
-        int count, adjMatSize;
+        int count, adjMatSize, edgeCount;
 };
 
 #endif //GRAPH_GRAPH_H
