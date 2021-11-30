@@ -16,7 +16,7 @@ struct Data {
 
 struct Node {
     Data data;
-    Node *left, *right;
+    Node *next;
 };
 
 //struct Vertex{
