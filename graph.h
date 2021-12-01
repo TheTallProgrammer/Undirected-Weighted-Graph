@@ -23,7 +23,7 @@ class Graph{
         int numOfEdges();
         bool getEdgeWeight(std::pair<int,int> *);
         bool addVertex(int, string *);
-        bool addEdge(std::pair<int,int> *);
+        bool addEdge(int *, int *);
         bool removeEdge(std::pair<int,int> *);
         bool removeVertex(int);
         bool getVertex(int, Node &);
@@ -41,8 +41,8 @@ class Graph{
         // Creating a 2d vector array for the adjMatrix
         std::vector<std::vector<Node>> adjMatrix;
         std::vector<Node> vertices;
-        std::vector<std::pair<Node, Node>> edges;
-        int count, adjMatSize, edgeCount;
+        std::vector<std::pair<int, int>> edges;
+        int count, adjMatSize, edgeCount, rowInt, colInt;
 };
 
 #endif //GRAPH_GRAPH_H
