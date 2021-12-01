@@ -16,6 +16,7 @@ Graph::Graph(){
     const int initialSize = 0;
     vertices = {};
     edges = {};
+    edgeWeight = {};
     adjMatrix = {initialSize, std::vector<Node>(initialSize)};
 } // End of constructor
 
@@ -69,7 +70,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     newVertex->prev = temp;
     newVertex->next = nullptr;
     addEdge(&temp->data.id, &newVertex->data.id);
-    addToMatrix(newVertex);
+//    addToMatrix(newVertex);
     return true;
 } // End of newLocation
 
@@ -79,8 +80,14 @@ bool Graph::addEdge(int *vertexOne, int *vertexTwo){
     edge.first = *vertexOne;
     edge.second = *vertexTwo;
     edges.push_back(edge);
+    edgeWeight.push_back(genEdgeWeight());
     return addedEdge;
 } // End of addEdge
+
+int Graph::genEdgeWeight() {
+    srand (time(NULL));
+    return rand() % 10 + 1;
+} // End of genEdgeWeight
 
 void Graph::addToMatrix(Node *newVertex){
     for(int i = 0; i < adjMatSize; i++){

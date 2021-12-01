@@ -9,6 +9,8 @@
 #include <vector>
 #include<bits/stdc++.h>
 #include "data.h"
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
 
 //template<class dType>
 class Graph{
@@ -33,6 +35,7 @@ class Graph{
         bool newLocation(Node *, Node *);
         void addToMatrix(Node *);
         void printMatrix();
+        int genEdgeWeight();
 
 
     private:
@@ -42,6 +45,7 @@ class Graph{
         std::vector<std::vector<Node>> adjMatrix;
         std::vector<Node> vertices;
         std::vector<std::pair<int, int>> edges;
+        std::vector<int> edgeWeight;
         int count, adjMatSize, edgeCount, rowInt, colInt;
 };
 
