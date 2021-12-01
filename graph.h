@@ -23,7 +23,7 @@ class Graph{
         bool isEmpty();
         int numOfVertices();
         int numOfEdges();
-        bool getEdgeWeight(std::pair<int,int> *);
+        int getEdgeWeight(std::pair<int,int> *);
         bool addVertex(int, string *);
         bool addEdge(int *, int *);
         bool removeEdge(std::pair<int,int> *);

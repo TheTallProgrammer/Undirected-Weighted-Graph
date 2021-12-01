@@ -35,9 +35,14 @@ int Graph::numOfVertices(){return count;} // End of getNumVertices
 
 int Graph::numOfEdges(){return edgeCount;} // End of numOfEdges
 
-bool Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
-    bool edgeExists = false;
-    return edgeExists;
+int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
+    int edgeW = 0;
+    for(int i =0; i < edges.size();i++){
+        if(vertexIds->first == edges[i].first && vertexIds->second == edges[i].second){
+            edgeW = edgeWeight[i];
+        }
+    }
+    return edgeW;
 
 } // End of getEdgeWeight
 
@@ -81,6 +86,7 @@ bool Graph::addEdge(int *vertexOne, int *vertexTwo){
     edge.second = *vertexTwo;
     edges.push_back(edge);
     edgeWeight.push_back(genEdgeWeight());
+    edgeCount++;
     return addedEdge;
 } // End of addEdge
 
