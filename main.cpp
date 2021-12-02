@@ -76,9 +76,17 @@ int main() {
         std::cout << "no" << std::endl;
     }
 
-    graph.printMatrix();
+    std::cout << "\nPrinting edges and their weights." << std::endl;
+    graph.printEdgesAndWeights();
 
-    std::string dataString = "";
+    std::cout << "\nFinding specific edge and edge weight. Weight: ";
+    int edgeWeight = 0;
+    std::pair<int,int> edge;
+    edge.first = ids[0];
+    edge.second = ids[1];
+    edgeWeight = graph.getEdgeWeight(&edge);
+    std::cout << edgeWeight << std::endl;
+//    graph.printMatrix();
 
 //    for(int i =0; i < testdatasize; i++){
 //        didRemove = graph.removeVertex(ids[i]);

@@ -4,6 +4,7 @@
 
 #include "graph.h"
 
+
 // Creates a vector array for Node vertices (v) and another vector with each cell
 // containing two Nodes that will represent one edge (e)
 // Which stores the vertex, and the adjacents to that vertex in a set
@@ -18,6 +19,7 @@ Graph::Graph(){
     edges = {};
     edgeWeight = {};
     adjMatrix = {initialSize, std::vector<Node>(initialSize)};
+    srand (time(NULL));
 } // End of constructor
 
 Graph::~Graph(){
@@ -45,6 +47,23 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
     return edgeW;
 
 } // End of getEdgeWeight
+
+void Graph::printEdgesAndWeights(){
+    std::cout << "Vertices: ";
+    for(int i = 0; i < vertices.size();i++){
+        std::cout << "{" << vertices[i].data.id << "},";
+    }
+    std::cout << std::endl;
+    std::cout << "Edges: ";
+    for(int i =0; i < edges.size();i++){
+        std::cout << "{" << edges[i].first << "," << edges[i].second << "},";
+    }
+    std::cout << "\nEdge's Weight: ";
+    for(int i =0; i < edgeWeight.size();i++){
+        std::cout << "{" << edgeWeight[i] << "},";
+    }
+    std::cout << std::endl;
+} // End of printEdgesAndWeights
 
 bool Graph::addVertex(int id, string *data){
     bool addedVertex = false;
@@ -74,6 +93,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     temp->next = newVertex;
     newVertex->prev = temp;
     newVertex->next = nullptr;
+    vertices.push_back(*newVertex);
     addEdge(&temp->data.id, &newVertex->data.id);
 //    addToMatrix(newVertex);
     return true;
@@ -91,8 +111,7 @@ bool Graph::addEdge(int *vertexOne, int *vertexTwo){
 } // End of addEdge
 
 int Graph::genEdgeWeight() {
-    srand (time(NULL));
-    return rand() % 10 + 1;
+    return (rand() % 40) ;
 } // End of genEdgeWeight
 
 void Graph::addToMatrix(Node *newVertex){
