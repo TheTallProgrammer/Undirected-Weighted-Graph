@@ -45,7 +45,6 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
         }
     }
     return edgeW;
-
 } // End of getEdgeWeight
 
 void Graph::printEdgesAndWeights(){
@@ -110,9 +109,7 @@ bool Graph::addEdge(int *vertexOne, int *vertexTwo){
     return addedEdge;
 } // End of addEdge
 
-int Graph::genEdgeWeight() {
-    return (rand() % 40) ;
-} // End of genEdgeWeight
+int Graph::genEdgeWeight() {return (rand() % 40) ;} // End of genEdgeWeight
 
 void Graph::addToMatrix(Node *newVertex){
     for(int i = 0; i < adjMatSize; i++){
@@ -158,7 +155,6 @@ bool Graph::getVertex(int id, Node &temp){
         }
     }
     return gotVertex;
-
 } // End of getVertex
 
 void Graph::depthFirstSearch() {

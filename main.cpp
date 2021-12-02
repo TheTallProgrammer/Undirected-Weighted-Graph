@@ -68,7 +68,7 @@ int main() {
     std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
-    std::cout << "\nFinding specific vertex. Successful?";
+    std::cout << "\nFinding specific vertex. Successful? ";
     gotVertex = graph.getVertex(ids[0], temp);
     if(gotVertex){
         std::cout << "Yes. Got vertex: " << temp.data.id << " : " << temp.data.data << std::endl;
