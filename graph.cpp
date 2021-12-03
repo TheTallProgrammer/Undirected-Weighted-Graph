@@ -90,7 +90,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     temp->next = newVertex;
     newVertex->prev = temp;
     newVertex->next = nullptr;
-    vertices.push_back(*newVertex);
+//    vertices.push_back(*newVertex);
     addEdge(&temp->data.id, &newVertex->data.id);
 //    addToMatrix(newVertex);
     return true;
