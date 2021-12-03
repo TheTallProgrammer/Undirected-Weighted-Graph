@@ -11,6 +11,7 @@
 #include "data.h"
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
+#include "linkedlist.h"
 
 //template<class dType>
 class Graph{
@@ -40,12 +41,11 @@ class Graph{
 
 
     private:
-
         Node *root;
         // Creating a 2d vector array for the adjMatrix
         std::vector<std::vector<Node>> adjMatrix;
         std::vector<Node> vertices;
-        std::vector<std::pair<int, int>> edges;
+        std::vector<LinkedList> edges;
         std::vector<int> edgeWeight;
         int count, adjMatSize, edgeCount, rowInt, colInt;
 };

@@ -19,10 +19,6 @@ struct Node {
     Node *next, *prev;
 };
 
-//struct Vertex{
-//    Node *vertex;
-//};
-
 template <typename T>
 struct Edge{
     T weight;
