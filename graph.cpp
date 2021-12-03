@@ -83,9 +83,9 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
         temp = temp->next;
     }
     count++;
-    temp->next = newVertex;
-    newVertex->prev = temp;
-    newVertex->next = nullptr;
+    LinkedList List;
+    List.addNode(newVertex->data.id, &newVertex->data.data);
+    vertices.push_back(List);
     addEdge(&temp->data.id, &newVertex->data.id);
     return true;
 } // End of newLocation
