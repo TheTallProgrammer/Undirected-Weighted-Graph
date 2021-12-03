@@ -15,7 +15,6 @@ Graph::Graph(){
     count = 0, edgeCount = 0, rowInt = 0, colInt = 0;
     adjMatSize = count*count;
     const int initialSize = 0;
-    vertices = {};
     edges = {};
     edgeWeight = {};
     listVertices = {};
@@ -74,7 +73,6 @@ bool Graph::addVertex(int id, string *data){
             LinkedList List;
             listVertices.push_back(List);
             listVertices[0].addNode(newVertex->data.id, &newVertex->data.data);
-            vertices.push_back(*newVertex);
             addedVertex = true;
         } else {
             addedVertex = newLocation(root, newVertex);
@@ -143,13 +141,15 @@ bool Graph::removeVertex(int id){
 
 bool Graph::getVertex(int id, Node &temp){
     bool gotVertex = false;
+    Data data;
     for(int i =0; i < count; i++){
-        if(vertices[i].data.id == id){
-            temp.data.id = vertices[i].data.id;
-            temp.data.data = vertices[i].data.data;
-            gotVertex = true;
+        listVertices[i].getNode(id, &data);
+            if(data.id == id) {
+                temp.data.id = data.id;
+                temp.data.data = data.data;
+                gotVertex = true;
+            }
         }
-    }
     return gotVertex;
 } // End of getVertex
 
