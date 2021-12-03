@@ -17,7 +17,7 @@ Graph::Graph(){
     const int initialSize = 0;
     edges = {};
     edgeWeight = {};
-    listVertices = {};
+    vertices = {};
     adjMatrix = {initialSize, std::vector<Node>(initialSize)};
     srand (time(NULL));
 } // End of constructor
@@ -45,14 +45,10 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 
 void Graph::printEdgesAndWeights(){
     std::cout << "Vertices: ";
-    for(int i = 0; i < vertices.size();i++){
-        std::cout << "{" << vertices[i].data.id << "},";
-    }
+
     std::cout << std::endl;
     std::cout << "Edges: ";
-    for(int i =0; i < edges.size();i++){
-        std::cout << "{" << edges[i].first << "," << edges[i].second << "},";
-    }
+
     std::cout << "\nEdge's Weight: ";
     for(int i =0; i < edgeWeight.size();i++){
         std::cout << "{" << edgeWeight[i] << "},";
@@ -71,8 +67,8 @@ bool Graph::addVertex(int id, string *data){
             adjMatSize = count*count;
             adjMatrix.resize(adjMatSize);
             LinkedList List;
-            listVertices.push_back(List);
-            listVertices[0].addNode(newVertex->data.id, &newVertex->data.data);
+            vertices.push_back(List);
+            vertices[0].addNode(newVertex->data.id, &newVertex->data.data);
             addedVertex = true;
         } else {
             addedVertex = newLocation(root, newVertex);
@@ -90,9 +86,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     temp->next = newVertex;
     newVertex->prev = temp;
     newVertex->next = nullptr;
-//    vertices.push_back(*newVertex);
     addEdge(&temp->data.id, &newVertex->data.id);
-//    addToMatrix(newVertex);
     return true;
 } // End of newLocation
 
@@ -143,7 +137,7 @@ bool Graph::getVertex(int id, Node &temp){
     bool gotVertex = false;
     Data data;
     for(int i =0; i < count; i++){
-        listVertices[i].getNode(id, &data);
+        vertices[i].getNode(id, &data);
             if(data.id == id) {
                 temp.data.id = data.id;
                 temp.data.data = data.data;

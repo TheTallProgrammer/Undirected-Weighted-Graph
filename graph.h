@@ -46,7 +46,7 @@ class Graph{
         std::vector<std::vector<Node>> adjMatrix;
         std::vector<LinkedList> edges;
         std::vector<int> edgeWeight;
-        std::vector<LinkedList> listVertices;
+        std::vector<LinkedList> vertices;
         int count, adjMatSize, edgeCount, rowInt, colInt;
 };
 
