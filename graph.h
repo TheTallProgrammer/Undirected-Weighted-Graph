@@ -47,6 +47,7 @@ class Graph{
         std::vector<Node> vertices;
         std::vector<LinkedList> edges;
         std::vector<int> edgeWeight;
+        std::vector<LinkedList> listVertices;
         int count, adjMatSize, edgeCount, rowInt, colInt;
 };
 

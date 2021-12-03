@@ -18,6 +18,7 @@ Graph::Graph(){
     vertices = {};
     edges = {};
     edgeWeight = {};
+    listVertices = {};
     adjMatrix = {initialSize, std::vector<Node>(initialSize)};
     srand (time(NULL));
 } // End of constructor
@@ -70,6 +71,9 @@ bool Graph::addVertex(int id, string *data){
             count++;
             adjMatSize = count*count;
             adjMatrix.resize(adjMatSize);
+            LinkedList List;
+            listVertices.push_back(List);
+            listVertices[0].addNode(newVertex->data.id, &newVertex->data.data);
             vertices.push_back(*newVertex);
             addedVertex = true;
         } else {
@@ -96,7 +100,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
 
 bool Graph::addEdge(int *vertexOne, int *vertexTwo){
     bool addedEdge = false;
-   
+
     edgeCount++;
     return addedEdge;
 } // End of addEdge
