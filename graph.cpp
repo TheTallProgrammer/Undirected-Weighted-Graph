@@ -15,8 +15,6 @@ Graph::Graph(){
     count = 0, edgeCount = 0, rowInt = 0, colInt = 0;
     adjMatSize = count*count;
     const int initialSize = 0;
-    edges = {};
-    edgeWeight = {};
     vertices = {};
     adjMatrix = {initialSize, std::vector<Node>(initialSize)};
     srand (time(NULL));
@@ -50,9 +48,7 @@ void Graph::printEdgesAndWeights(){
     std::cout << "Edges: ";
 
     std::cout << "\nEdge's Weight: ";
-    for(int i =0; i < edgeWeight.size();i++){
-        std::cout << "{" << edgeWeight[i] << "},";
-    }
+    
     std::cout << std::endl;
 } // End of printEdgesAndWeights
 

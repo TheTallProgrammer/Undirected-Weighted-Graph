@@ -44,8 +44,6 @@ class Graph{
         Node *root;
         // Creating a 2d vector array for the adjMatrix
         std::vector<std::vector<Node>> adjMatrix;
-        std::vector<LinkedList> edges;
-        std::vector<int> edgeWeight;
         std::vector<LinkedList> vertices;
         int count, adjMatSize, edgeCount, rowInt, colInt;
 };
