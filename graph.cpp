@@ -43,8 +43,8 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 void Graph::printEdgesAndWeights(){
     std::cout << "Vertices: " << std::endl;
     for(int i = 0; i < vertices.size(); i++){
+        std::cout << "Vertex: " << i << ":";
         vertices[i].printList();
-        std::cout << std::endl;
     }
 
     std::cout << std::endl;
