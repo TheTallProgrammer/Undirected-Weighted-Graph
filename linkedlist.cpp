@@ -96,6 +96,9 @@ void LinkedList::printList(bool backward){
     if(!backward && position!= nullptr) {
         while (position != nullptr) {
             std::cout << "\t" << loopCount << ": " << position->data.id << " : " << position->data.data << std::endl;
+            if(position->next != nullptr){
+                std::cout << "-->";
+            }
             position = position->next;
             loopCount += 1;
         }
