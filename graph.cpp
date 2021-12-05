@@ -41,7 +41,11 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 } // End of getEdgeWeight
 
 void Graph::printEdgesAndWeights(){
-    std::cout << "Vertices: ";
+    std::cout << "Vertices: " << std::endl;
+    for(int i = 0; i < vertices.size(); i++){
+        vertices[i].printList();
+        std::cout << std::endl;
+    }
 
     std::cout << std::endl;
     std::cout << "Edges: ";
@@ -81,7 +85,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     LinkedList List;
     List.addNode(newVertex->data.id, &newVertex->data.data);
     vertices.push_back(List);
-    addEdge(&temp->data.id, &newVertex->data.id);
+//    addEdge(&temp->data.id, &newVertex->data.id);
     return true;
 } // End of newLocation
 
