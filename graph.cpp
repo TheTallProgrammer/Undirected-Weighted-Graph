@@ -63,8 +63,8 @@ bool Graph::addVertex(int id, string *data){
             adjMatSize = count*count;
             adjMatrix.resize(adjMatSize);
             LinkedList List;
+            List.addNode(newVertex->data.id, &newVertex->data.data);
             vertices.push_back(List);
-            vertices[0].addNode(newVertex->data.id, &newVertex->data.data);
             addedVertex = true;
         } else {
             addedVertex = newLocation(root, newVertex);
