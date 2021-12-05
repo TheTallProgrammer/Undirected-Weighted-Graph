@@ -14,9 +14,8 @@ Graph::Graph(){
     root = nullptr;
     count = 0, edgeCount = 0, rowInt = 0, colInt = 0;
     adjMatSize = count*count;
-    const int initialSize = 0;
     vertices = {};
-    adjMatrix = {initialSize, std::vector<Node>(initialSize)};
+    adjMatrix = {0, std::vector<Node>(0)};
     srand (time(NULL));
 } // End of constructor
 
