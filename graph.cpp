@@ -42,9 +42,9 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 
 void Graph::printEdgesAndWeights(){
     std::cout << "Vertices: " << std::endl;
-    for(int i = 0; i < vertices.size(); i++){
+    for(int i = 0; i < adjList.size(); i++){
         std::cout << "Vertex: " << i << ":";
-        vertices[i].printList();
+        adjList[i].printList();
     }
 
     std::cout << std::endl;
@@ -67,7 +67,7 @@ bool Graph::addVertex(int id, string *data){
             adjMatrix.resize(adjMatSize);
             LinkedList List;
             List.addNode(newVertex->data.id, &newVertex->data.data);
-            vertices.push_back(List);
+            adjList.push_back(List);
             addedVertex = true;
         } else {
             addedVertex = newLocation(root, newVertex);
@@ -84,7 +84,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     count++;
     LinkedList List;
     List.addNode(newVertex->data.id, &newVertex->data.data);
-    vertices.push_back(List);
+    adjList.push_back(List);
 //    addEdge(&temp->data.id, &newVertex->data.id);
     return true;
 } // End of newLocation
@@ -136,7 +136,7 @@ bool Graph::getVertex(int id, Node &temp){
     bool gotVertex = false;
     Data data;
     for(int i =0; i < count; i++){
-        vertices[i].getNode(id, &data);
+        adjList[i].getNode(id, &data);
             if(data.id == id) {
                 temp.data.id = data.id;
                 temp.data.data = data.data;
