@@ -79,11 +79,14 @@ bool Graph::addVertex(int id, string *data){
 bool Graph::newLocation(Node *root, Node *newVertex) {
     int randInsert = (rand() % 2) + 1;
     if(randInsert == 1){ // Making the new node adjacent to a previous node
-        randInsert = (rand() % adjList.size()) + 1;
+        randInsert = (rand() % adjList.size());
+        std::cout << "Size of adjList: " << adjList.size() << " : randInsert: " << randInsert << std::endl;
         adjList[randInsert].addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
         newVertex->edge.weight = genEdgeWeight();
         edgeCount++;
+        count++;
     } else { // Just adding to another list
+        std::cout << "Size of adjList: " << adjList.size() << " : randInsert: " << randInsert << std::endl;
         count++;
         LinkedList List;
         List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
