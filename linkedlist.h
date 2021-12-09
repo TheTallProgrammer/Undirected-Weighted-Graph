@@ -17,7 +17,7 @@ public:
     ~LinkedList();
 
     //Methods
-    bool addNode(int, string*);
+    bool addNode(int, string*, int);
     bool deleteNode(int);
     bool getNode(int, Data*);
     void printList(bool = false);
@@ -32,7 +32,7 @@ private:
     Node *head, *tail;
 
     // Private methods
-    void initializeNode(int *, string*, Node*);
+    void initializeNode(int *, string*, Node*, int *);
     bool checkOperation(Node *, Node *, int *);
     void insertHead(Node *);
     void insertMiddle(Node *, Node *);

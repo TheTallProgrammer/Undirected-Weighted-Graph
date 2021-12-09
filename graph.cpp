@@ -80,7 +80,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     int randInsert = (rand() % 2) + 1;
     if(randInsert == 1){ // Making the new node adjacent to a previous node
         randInsert = (rand() % adjList.size()) + 1;
-        adjList[randInsert].addNode(newVertex->data.id, &newVertex->data.data);
+        adjList[randInsert].addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
         newVertex->edge.weight = genEdgeWeight();
         edgeCount++;
     } else { // Just adding to another list
