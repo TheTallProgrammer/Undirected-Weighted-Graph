@@ -77,25 +77,19 @@ bool Graph::addVertex(int id, string *data){
 } // End of addVertex
 
 bool Graph::newLocation(Node *root, Node *newVertex) {
-    Node *temp = root;
-    while((root!= nullptr) && temp->next!= nullptr){
-        temp = temp->next;
-    }
+//    Node *temp = root;
+//    while((root!= nullptr) && temp->next!= nullptr){
+//        temp = temp->next;
+//    }
     count++;
     LinkedList List;
-    newVertex->edge.weight = genEdgeWeight();
+//    newVertex->edge.weight = genEdgeWeight();
+//    edgeCount++;
     List.addNode(newVertex->data.id, &newVertex->data.data);
     adjList.push_back(List);
 //    addEdge(&temp->data.id, &newVertex->data.id);
     return true;
 } // End of newLocation
-
-bool Graph::addEdge(int *vertexOne, int *vertexTwo){
-    bool addedEdge = false;
-
-    edgeCount++;
-    return addedEdge;
-} // End of addEdge
 
 int Graph::genEdgeWeight() {return (rand() % 40) ;} // End of genEdgeWeight
 
