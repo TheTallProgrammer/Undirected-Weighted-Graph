@@ -77,21 +77,24 @@ bool Graph::addVertex(int id, string *data){
 } // End of addVertex
 
 bool Graph::newLocation(Node *root, Node *newVertex) {
-//    Node *temp = root;
-//    while((root!= nullptr) && temp->next!= nullptr){
-//        temp = temp->next;
-//    }
-    count++;
-    LinkedList List;
-//    newVertex->edge.weight = genEdgeWeight();
-//    edgeCount++;
-    List.addNode(newVertex->data.id, &newVertex->data.data);
-    adjList.push_back(List);
-//    addEdge(&temp->data.id, &newVertex->data.id);
+    int randInsert = (rand() % 2) + 1;
+    if(randInsert == 1){ // Making the new node adjacent to a previous node
+        Node *temp = root;
+        while((root!= nullptr) && temp->next!= nullptr) {
+            temp = temp->next;
+        }
+        newVertex->edge.weight = genEdgeWeight();
+        edgeCount++;
+    } else { // Just adding to another list
+        count++;
+        LinkedList List;
+        List.addNode(newVertex->data.id, &newVertex->data.data);
+        adjList.push_back(List);
+    }
     return true;
 } // End of newLocation
 
-int Graph::genEdgeWeight() {return (rand() % 40) ;} // End of genEdgeWeight
+int Graph::genEdgeWeight() {return (rand() % 40);} // End of genEdgeWeight
 
 void Graph::addToMatrix(Node *newVertex){
     for(int i = 0; i < adjMatSize; i++){
