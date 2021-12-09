@@ -154,7 +154,7 @@ bool LinkedList::getTail(Data *data){
 void LinkedList::initializeNode(int *id, string *data, Node *newNode, int *edgeWeight){
     newNode->data.id = *id;
     newNode->data.data = *data;
-    newNode->edge = edge;
+    newNode->edge.weight = *edgeWeight;
     newNode->next = nullptr;
 } // End of initializeNode
 

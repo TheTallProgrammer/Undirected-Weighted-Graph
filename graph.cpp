@@ -66,7 +66,7 @@ bool Graph::addVertex(int id, string *data){
             adjMatSize = count*count;
             adjMatrix.resize(adjMatSize);
             LinkedList List;
-            List.addNode(newVertex->data.id, &newVertex->data.data);
+            List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
             adjList.push_back(List);
             addedVertex = true;
         } else {
@@ -86,7 +86,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     } else { // Just adding to another list
         count++;
         LinkedList List;
-        List.addNode(newVertex->data.id, &newVertex->data.data);
+        List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
         adjList.push_back(List);
     }
     return true;
@@ -153,6 +153,7 @@ void Graph::breadthFirstSearch() {
 void Graph::initializeVertex(int *id, string *data, Node *newVertex){
     newVertex->data.id = *id;
     newVertex->data.data = *data;
+    newVertex->edge.weight = 0;
     newVertex->next = nullptr;
     newVertex->prev = nullptr;
 } // End of initializeVertex
