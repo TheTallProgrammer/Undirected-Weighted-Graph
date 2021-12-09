@@ -79,6 +79,8 @@ bool Graph::addVertex(int id, string *data){
 bool Graph::newLocation(Node *root, Node *newVertex) {
     int randInsert = (rand() % 2) + 1;
     if(randInsert == 1){ // Making the new node adjacent to a previous node
+        randInsert = (rand() % adjList.size()) + 1;
+
         Node *temp = root;
         while((root!= nullptr) && temp->next!= nullptr) {
             temp = temp->next;
