@@ -27,7 +27,9 @@ int main() {
 
     srand(time(NULL));
 
-    // -----------End of creating test data-----------
+    // -----------End of c
+    //
+    // reating test data-----------
 
     bool didInsert;
     bool didRemove = false;

@@ -83,6 +83,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     }
     count++;
     LinkedList List;
+    newVertex->edge.weight(genEdgeWeight());
     List.addNode(newVertex->data.id, &newVertex->data.data);
     adjList.push_back(List);
 //    addEdge(&temp->data.id, &newVertex->data.id);

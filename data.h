@@ -14,16 +14,20 @@ struct Data {
     string data;
 };
 
+struct Edge{
+    int weight;
+    Edge *next, *prev;
+};
+
 struct Node {
     Data data;
     Node *next, *prev;
+    Edge edge;
 };
 
-template <typename T>
-struct Edge{
-    T weight;
-    Node *start, *end;
-};
+
+
+
 
 
 #endif //GRAPH_DATA_H
