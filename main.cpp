@@ -91,6 +91,9 @@ int main() {
 
     std::cout << "\nPrinting adjacency list:" << std::endl;
     graph.printAdjList();
+
+    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 //
 //    std::cout << "\nFinding specific edge and edge weight. Weight: ";
 
