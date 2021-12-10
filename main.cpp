@@ -70,6 +70,9 @@ int main() {
     std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
+    std::cout << "\nPrinting the Label IDS" << std::endl;
+    graph.printLabelList();
+
     std::cout << "\nFinding specific vertex. Successful? ";
     gotVertex = graph.getVertex(ids[0], temp);
     if(gotVertex){

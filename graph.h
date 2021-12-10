@@ -37,6 +37,7 @@ class Graph{
         void printMatrix();
         int genEdgeWeight();
         void printEdgesAndWeights();
+        void printLabelList();
 
 
     private:
@@ -44,7 +45,7 @@ class Graph{
         // Creating a 2d vector array for the adjMatrix
         std::vector<std::vector<Node>> adjMatrix;
         std::vector<LinkedList> adjList;
-        std::vector<std::string> adjListPositions;
+        std::vector<int> adjListLabels;
         int count, adjMatSize, edgeCount, rowInt, colInt, adjListSize;
 };
 

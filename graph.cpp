@@ -14,7 +14,7 @@ Graph::Graph(){
     root = nullptr;
     count = 0, edgeCount = 0, rowInt = 0, colInt = 0, adjListSize = 0;
     adjMatSize = count*count;
-    adjList = {}, adjListPositions = {};
+    adjList = {}, adjListLabels = {};
     adjMatrix = {0, std::vector<Node>(0)};
     srand (time(NULL));
 } // End of constructor
@@ -40,6 +40,12 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
     return edgeW;
 } // End of getEdgeWeight
 
+void Graph::printLabelList(){
+    for(int i =0; i < adjListLabels.size(); i++){
+        std::cout << "index: " << i << ": Label ID: " << adjListLabels[i] << std::endl;
+    }
+}
+
 void Graph::printEdgesAndWeights(){
     std::cout << "Vertices: " << std::endl;
     for(int i = 0; i < adjList.size(); i++){
@@ -61,15 +67,20 @@ bool Graph::addVertex(int id, string *data){
         Node *newVertex = new Node();
         initializeVertex(&id, data, newVertex);
         if(isEmpty()){
+
             root = newVertex;
             count++;
+
             adjListSize = count;
             adjList.resize(adjListSize);
             // adjListPositions is a parallel array vector that will determine where a new list goes in the adjList
-            adjListPositions.resize(adjListSize);
+            adjListLabels.resize(adjListSize);
+
             LinkedList List;
             List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
-            adjList.push_back(List);
+
+            adjListLabels.insert(adjListLabels.begin(), newVertex->data.id);
+            adjList.insert(adjList.begin(), List);
             addedVertex = true;
         } else {
             addedVertex = newLocation(root, newVertex);
