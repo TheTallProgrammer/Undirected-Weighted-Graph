@@ -20,9 +20,8 @@ bool LinkedList::addNode(int id, string *data, int edgeWeight){
     if(id >= 0 && data->length() > 0 ) {
         while ((head != nullptr) && id > position->data.id && position->next != nullptr) {// Loops through the list to find a spot for the node
             position = position->next;
-//        }if(head != nullptr && id == position->data.id){}
-        }
-        if (head == nullptr) {// First head node
+        }if(head != nullptr && id == position->data.id){}
+        else if (head == nullptr) {// First head node
             Node *newNode = new Node();
             initializeNode(&id, data, newNode, &edgeWeight);
             head = newNode;
@@ -177,6 +176,7 @@ bool LinkedList::checkOperation(Node *position, Node *newNode, int *id){
 void LinkedList::insertHead(Node *newNode){
     newNode->next = head;
     head = newNode;
+    std::cout << "added new head node" << std::endl;
 } // End of inserthead
 
 void LinkedList::insertMiddle(Node *position, Node *newNode){
@@ -188,10 +188,12 @@ void LinkedList::insertMiddle(Node *position, Node *newNode){
     }
     prev->next = newNode;
     newNode->next = curr;
+    std::cout << "added new middle node" << std::endl;
 } // End of insertMiddle
 
 void LinkedList::insertTail(Node *position, Node *newNode){
     position->next = newNode;
     tail = newNode;
     newNode->next = nullptr;
+    std::cout << "added new tail node" << std::endl;
 } // End of insertTail

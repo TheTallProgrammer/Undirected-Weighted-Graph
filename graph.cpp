@@ -58,11 +58,10 @@ bool Graph::addVertex(int id, string *data){
             count++;
             adjListSize = count;
             LinkedList List;
-            List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
+            addedVertex = List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
             // adjListLabels is a parallel array vector that will determine where a new list goes in the adjList
             adjListLabels.push_back(newVertex->data.id);
             adjList.push_back(List);
-            addedVertex = true;
         } else {
             addedVertex = newLocation(root, newVertex);
         }
@@ -72,23 +71,25 @@ bool Graph::addVertex(int id, string *data){
 
 bool Graph::newLocation(Node *root, Node *newVertex) {
     bool containsID = false;
+    bool didAdd = false;
     // The id is already in the list, so just add another node adjacent to it
     for(int i =0; i < adjListLabels.size(); i++) {
         if(adjListLabels[i] == newVertex->data.id) {
-            adjList[i].addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
+            didAdd = adjList[i].addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
             edgeCount++, count++;
             containsID = true;
         }
     }
     if(!containsID){ // ID does not exist in the list
         LinkedList List;
-        List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
+        didAdd = List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
         adjListLabels.push_back(newVertex->data.id);
         adjList.push_back(List);
+        printAdjList();
         count++;
         containsID = true;
     }
-    return true;
+    return didAdd;
 } // End of newLocation
 
 int Graph::genEdgeWeight() {return (rand() % 40) + 1;} // End of genEdgeWeight
