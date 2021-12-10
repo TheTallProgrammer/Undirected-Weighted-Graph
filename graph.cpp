@@ -12,9 +12,9 @@
 // Keeps to the formula g = (v,e)
 Graph::Graph(){
     root = nullptr;
-    count = 0, edgeCount = 0, rowInt = 0, colInt = 0;
+    count = 0, edgeCount = 0, rowInt = 0, colInt = 0, adjListSize = 0;
     adjMatSize = count*count;
-    adjList = {};
+    adjList = {}, adjListPositions = {};
     adjMatrix = {0, std::vector<Node>(0)};
     srand (time(NULL));
 } // End of constructor
@@ -63,8 +63,10 @@ bool Graph::addVertex(int id, string *data){
         if(isEmpty()){
             root = newVertex;
             count++;
-            adjMatSize = count*count;
-            adjMatrix.resize(adjMatSize);
+            adjListSize = count;
+            adjList.resize(adjListSize);
+            // adjListPositions is a parallel array vector that will determine where a new list goes in the adjList
+            adjListPositions.resize(adjListSize);
             LinkedList List;
             List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
             adjList.push_back(List);
