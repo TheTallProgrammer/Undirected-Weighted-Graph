@@ -88,24 +88,34 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     return didAdd;
 } // End of newLocation
 
-bool Graph::addEdge(Node *vertexOne, Node *vertexTwo, int weight){
+bool Graph::addEdge(int vertexOneID, int vertexTwoID, int weight){
     bool addedEdge = false, hasVOne = false, hasVTwo = false;
-    int position = 0;
+    Node *vertexOne;
+    Node *vertexTwo;
+    int position = 0, positionTwo = 0;
     for(int i = 0; i < adjListLabels.size(); i++){
-        if(adjListLabels[i] == vertexOne->data.id){
+        std::cout << "inside for loop" << std::endl;
+        if(adjListLabels[i] == vertexOneID){
+            std::cout << "inside first if" << std::endl;
+            adjList[i].getNode(vertexOneID, vertexOne);
             hasVOne = true;
             position = i;
         }
-        if(adjListLabels[i] == vertexTwo->data.id){
+        if(adjListLabels[i] == vertexTwoID){
+            std::cout << "inside second if" << std::endl;
+            adjList[i].getNode(vertexTwoID, vertexTwo);
             hasVTwo = true;
+            positionTwo = i;
         }
     }
     // This means that an edge can be created because the two vertices exist
     if(hasVOne && hasVTwo){
         vertexTwo->edge.weight = weight;
-        vertexTwo->prev = vertexOne; // Makes an undirectional graph by linking the two
-        vertexOne->next = vertexTwo;
+        // Add both to the list so that it's undirectional
+        std::cout << "has both ids" << std::endl;
         adjList[position].addNode(vertexTwo->data.id, &vertexTwo->data.data, vertexTwo->edge.weight);
+//        adjList[positionTwo].addNode(vertexOne->data.id, &vertexOne->data.data, vertexTwo->edge.weight);
+        vertexTwo->prev = vertexOne; // Add this to make it undirectional
         addedEdge = true;
         edgeCount++;
     }
@@ -150,13 +160,10 @@ bool Graph::removeVertex(int id){
 
 bool Graph::getVertex(int id, Node &temp){
     bool gotVertex = false;
-    Data data;
     for(int i =0; i < count; i++){
         if(adjListLabels[i] == id){
-            adjList[i].getNode(id, &data);
-            if(data.id == id) {
-                temp.data.id = data.id;
-                temp.data.data = data.data;
+            adjList[i].getNode(id, &temp);
+            if(temp.data.id == id) {
                 gotVertex = true;
             }
         }

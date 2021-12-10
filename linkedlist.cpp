@@ -74,14 +74,14 @@ bool LinkedList::deleteNode(int id){
     return didDelete;
 } // End of deleteNode
 
-bool LinkedList::getNode(int id, Data* newStruct){
+bool LinkedList::getNode(int id, Node *tempNode){
     Node *position = head;
     bool gotNode = false;
-
-    while (position != nullptr && !gotNode) {
+    while (position!= nullptr && !gotNode) {
+        std::cout << "inside while loop" << std::endl;
         if(id == position->data.id){
-            newStruct->id = position->data.id;
-            newStruct->data = position->data.data;
+            tempNode = position;
+            std::cout << "tempNode = position" << std::endl;
             gotNode = true;
         } else{
             position = position->next;
@@ -177,7 +177,6 @@ bool LinkedList::checkOperation(Node *position, Node *newNode, int *id){
 void LinkedList::insertHead(Node *newNode){
     newNode->next = head;
     head = newNode;
-    std::cout << "added new head node" << std::endl;
 } // End of inserthead
 
 void LinkedList::insertMiddle(Node *position, Node *newNode){
@@ -189,12 +188,10 @@ void LinkedList::insertMiddle(Node *position, Node *newNode){
     }
     prev->next = newNode;
     newNode->next = curr;
-    std::cout << "added new middle node" << std::endl;
 } // End of insertMiddle
 
 void LinkedList::insertTail(Node *position, Node *newNode){
     position->next = newNode;
     tail = newNode;
     newNode->next = nullptr;
-    std::cout << "added new tail node" << std::endl;
 } // End of insertTail

@@ -83,6 +83,33 @@ int main() {
     std::cout << "\nPrinting adjacency list:" << std::endl;
     graph.printAdjList();
 
+    didInsert = graph.addVertex(ids[0], &strs[0]);
+    std::cout << "\ninsert of vertex with id " << ids[randIndex] << " successful? ";
+    if(didInsert){
+        std::cout << "yes" << std::endl;
+    } else {
+        std::cout << "no" << std::endl;
+    }
+
+    didInsert = graph.addVertex(ids[1], &strs[1]);
+    std::cout << "insert of vertex with id " << ids[randIndex] << " successful? ";
+    if(didInsert){
+        std::cout << "yes" << std::endl;
+    } else {
+        std::cout << "no" << std::endl;
+    }
+
+    bool addedEdge = graph.addEdge(ids[0], ids[1], 20);
+    std::cout << "Attempting to add edge between vertices " << ids[0] << ", " << ids[1] << ". Successful?";
+    if(addedEdge){
+        std::cout << "yes" << std::endl;
+    } else {
+        std::cout << "no" << std::endl;
+    }
+
+    std::cout << "\nPrinting adjacency list:" << std::endl;
+    graph.printAdjList();
+
     std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 //
