@@ -72,15 +72,15 @@ bool Graph::addVertex(int id, string *data){
 bool Graph::newLocation(Node *root, Node *newVertex) {
     bool containsID = false;
     bool didAdd = false;
-    // The id is already in the list, so just add another node adjacent to it
-    for(int i =0; i < adjListLabels.size(); i++) {
-        if(adjListLabels[i] == newVertex->data.id) {
-            didAdd = adjList[i].addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
-            edgeCount++, count++;
-            containsID = true;
-        }
-    }
-    if(!containsID){ // ID does not exist in the list
+//    // The id is already in the list, so just add another node adjacent to it
+//    for(int i =0; i < adjListLabels.size(); i++) {
+//        if(adjListLabels[i] == newVertex->data.id) {
+//            didAdd = adjList[i].addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
+//            edgeCount++, count++;
+//            containsID = true;
+//        }
+//    }
+//    if(!containsID){ // ID does not exist in the list
         LinkedList List;
         didAdd = List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
         adjListLabels.push_back(newVertex->data.id);
@@ -88,7 +88,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
         printAdjList();
         count++;
         containsID = true;
-    }
+//    }
     return didAdd;
 } // End of newLocation
 
