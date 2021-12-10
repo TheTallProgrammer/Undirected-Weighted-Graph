@@ -91,7 +91,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     return true;
 } // End of newLocation
 
-int Graph::genEdgeWeight() {return (rand() % 40);} // End of genEdgeWeight
+int Graph::genEdgeWeight() {return (rand() % 40) + 1;} // End of genEdgeWeight
 
 void Graph::addToMatrix(Node *newVertex){
     for(int i = 0; i < adjMatSize; i++){

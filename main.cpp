@@ -40,6 +40,7 @@ int main() {
     int iterationCount = 1;
     Node temp;
     bool gotVertex = false;
+    int randIndex;
 
     // create your hash graph object here
     Graph graph;
@@ -59,8 +60,9 @@ int main() {
     // Testing insert/remove methods
     std::cout << "\n**TESTING INSERT/REMOVE**" << std::endl;
     for(int i =0; i < testdatasize; i++){
-        didInsert = graph.addVertex(ids[i], &strs[i]);
-        std::cout << "insert of vertex with id " << ids[i] << " successful? ";
+        randIndex = (rand() % testdatasize);
+        didInsert = graph.addVertex(ids[randIndex], &strs[randIndex]);
+        std::cout << "insert of vertex with id " << ids[randIndex] << " successful? ";
         if(didInsert){
             std::cout << "yes" << std::endl;
         } else {
