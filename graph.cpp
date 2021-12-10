@@ -51,6 +51,7 @@ void Graph::printEdgesAndWeights(){
     for(int i = 0; i < adjList.size(); i++){
         std::cout << "Vertex: " << i << ":";
         adjList[i].printList();
+        std::cout << std::endl;
     }
 
     std::cout << std::endl;
@@ -70,13 +71,11 @@ bool Graph::addVertex(int id, string *data){
             root = newVertex;
             count++;
             adjListSize = count;
-            adjList.resize(adjListSize);
-            // adjListPositions is a parallel array vector that will determine where a new list goes in the adjList
-            adjListLabels.resize(adjListSize);
             LinkedList List;
             List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
-            adjListLabels.insert(adjListLabels.begin(), newVertex->data.id);
-            adjList.insert(adjList.begin(), List);
+            // adjListLabels is a parallel array vector that will determine where a new list goes in the adjList
+            adjListLabels.push_back(newVertex->data.id);
+            adjList.push_back(List);
             addedVertex = true;
         } else {
             addedVertex = newLocation(root, newVertex);
