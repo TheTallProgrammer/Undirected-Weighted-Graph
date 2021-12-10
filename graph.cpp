@@ -89,8 +89,25 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     return didAdd;
 } // End of newLocation
 
-bool Graph::addEdge(Node *vertexOne, Node *vertexTwo){
-    bool addedEdge = false;
+bool Graph::addEdge(Node *vertexOne, Node *vertexTwo, int weight){
+    bool addedEdge = false, hasVOne = false, hasVTwo = false;
+    int position = 0;
+    for(int i = 0; i < adjListLabels.size(); i++){
+        if(adjListLabels[i] == vertexOne->data.id){
+            hasVOne = true;
+            position = i;
+        }
+        if(adjListLabels[i] == vertexTwo->data.id){
+            hasVTwo = true;
+        }
+    }
+    // This means that an edge can be created because the two vertices exist
+    if(hasVOne && hasVTwo){
+        vertexTwo->edge.weight = weight;
+        vertexTwo->prev = vertexOne; // Makes an undirectional graph by linking the two
+        vertexOne->next = vertexTwo;
+        adjList[position].addNode(vertexTwo->data.id, &vertexTwo->data.data, vertexTwo->edge.weight);
+    }
     return addedEdge;
 
 } // End of addEdge
