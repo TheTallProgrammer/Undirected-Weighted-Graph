@@ -42,24 +42,23 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 
 void Graph::printLabelList(){
     for(int i =0; i < adjListLabels.size()-1; i++){
-        std::cout << "index: " << i << ": Label ID: " << adjListLabels[i] << std::endl;
+        std::cout << "Label ID: " << adjListLabels[i] << std::endl;
     }
 }
 
 void Graph::printEdgesAndWeights(){
     std::cout << "Vertices: " << std::endl;
     for(int i = 0; i < adjList.size(); i++){
-        std::cout << "Vertex: " << i << ":";
+        std::cout << "Vertex: " << i << " : ";
         adjList[i].printList();
-        std::cout << std::endl;
     }
 
-    std::cout << std::endl;
-    std::cout << "Edges: ";
-
-    std::cout << "\nEdge's Weight: ";
-    
-    std::cout << std::endl;
+//    std::cout << std::endl;
+//    std::cout << "Edges: ";
+//
+//    std::cout << "\nEdge's Weight: ";
+//
+//    std::cout << std::endl;
 } // End of printEdgesAndWeights
 
 bool Graph::addVertex(int id, string *data){
@@ -88,19 +87,22 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     bool containsID = false;
     // The id is already in the list, so just add another node adjacent to it
     for(int i =0; i < adjListLabels.size()-1; i++) {
+        std::cout << "inside loop" << std::endl;
         if(adjListLabels[i] == newVertex->data.id) {
+            std::cout << "input id: " << newVertex->data.id << " equals found id: " << adjListLabels[i] << std::endl;
             adjList[i].addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
-            edgeCount++;
-            count++;
+            edgeCount++, count++;
             containsID = true;
         }
     }
     if(!containsID){ // ID does not exist in the list
+        std::cout << "id does not exist, will be inserted" << std::endl;
         LinkedList List;
         List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
         adjListLabels.push_back(newVertex->data.id);
         adjList.push_back(List);
         count++;
+        containsID = true;
     }
     return true;
 } // End of newLocation

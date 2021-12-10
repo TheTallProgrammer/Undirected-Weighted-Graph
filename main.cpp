@@ -70,7 +70,7 @@ int main() {
     std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
-    std::cout << "\nPrinting the Label IDS" << std::endl;
+    std::cout << "\nPrinting the Label IDS:" << std::endl;
     graph.printLabelList();
 
     std::cout << "\nFinding specific vertex. Successful? ";
@@ -84,13 +84,19 @@ int main() {
     std::cout << "\nPrinting edges and their weights." << std::endl;
     graph.printEdgesAndWeights();
 
-    std::cout << "\nFinding specific edge and edge weight. Weight: ";
-    int edgeWeight = 0;
-    std::pair<int,int> edge;
-    edge.first = ids[0];
-    edge.second = ids[1];
-    edgeWeight = graph.getEdgeWeight(&edge);
-    std::cout << edgeWeight << std::endl;
+    didInsert = graph.addVertex(ids[0], &strs[1]);
+    std::cout << "insert of vertex with id " << ids[0] << " successful? ";
+    if(didInsert){
+        std::cout << "yes" << std::endl;
+    } else {
+        std::cout << "no" << std::endl;
+    }
+
+    std::cout << "\nPrinting edges and their weights." << std::endl;
+    graph.printEdgesAndWeights();
+//
+//    std::cout << "\nFinding specific edge and edge weight. Weight: ";
+
 //    graph.printMatrix();
 
 //    for(int i =0; i < testdatasize; i++){

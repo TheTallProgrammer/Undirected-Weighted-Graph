@@ -20,8 +20,9 @@ bool LinkedList::addNode(int id, string *data, int edgeWeight){
     if(id >= 0 && data->length() > 0 ) {
         while ((head != nullptr) && id > position->data.id && position->next != nullptr) {// Loops through the list to find a spot for the node
             position = position->next;
-        }if(head != nullptr && id == position->data.id){}
-        else if (head == nullptr) {// First head node
+//        }if(head != nullptr && id == position->data.id){}
+        }
+        if (head == nullptr) {// First head node
             Node *newNode = new Node();
             initializeNode(&id, data, newNode, &edgeWeight);
             head = newNode;
@@ -95,13 +96,14 @@ void LinkedList::printList(bool backward){
     int loopCount = 1;
     if(!backward && position!= nullptr) {
         while (position != nullptr) {
-            std::cout << "\t" << loopCount << ": " << position->data.id << " : " << position->data.data << std::endl;
+            std::cout << loopCount << ": " << position->data.id << " : " << position->data.data;
             if(position->next != nullptr){
-                std::cout << "-->";
+                std::cout << " --> ";
             }
             position = position->next;
             loopCount += 1;
         }
+        std::cout << std::endl;
     }
 } // End of printList
 
