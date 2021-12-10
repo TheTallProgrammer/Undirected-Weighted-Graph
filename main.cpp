@@ -83,44 +83,6 @@ int main() {
     std::cout << "\nPrinting adjacency list:" << std::endl;
     graph.printAdjList();
 
-    didInsert = graph.addVertex(ids[0], &strs[1]);
-    std::cout << "\ninsert of vertex with id " << ids[0] << " successful? ";
-    if(didInsert){
-        std::cout << "yes" << std::endl;
-    } else {
-        std::cout << "no" << std::endl;
-    }
-
-    std::cout << "\nPrinting adjacency list:" << std::endl;
-    graph.printAdjList();
-
-    didInsert = graph.addVertex(ids[0], &strs[1]);
-    std::cout << "\ninsert of vertex with id " << ids[0] << " successful? ";
-    if(didInsert){
-        std::cout << "yes" << std::endl;
-    } else {
-        std::cout << "no" << std::endl;
-    }
-
-    didInsert = graph.addVertex(ids[0], &strs[1]);
-    std::cout << "\ninsert of vertex with id " << ids[0] << " successful? ";
-    if(didInsert){
-        std::cout << "yes" << std::endl;
-    } else {
-        std::cout << "no" << std::endl;
-    }
-
-    didInsert = graph.addVertex(ids[0], &strs[1]);
-    std::cout << "\ninsert of vertex with id " << ids[0] << " successful? ";
-    if(didInsert){
-        std::cout << "yes" << std::endl;
-    } else {
-        std::cout << "no" << std::endl;
-    }
-
-    std::cout << "\nPrinting adjacency list:" << std::endl;
-    graph.printAdjList();
-
     std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 //

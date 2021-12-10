@@ -82,7 +82,6 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
         didAdd = List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
         adjListLabels.push_back(newVertex->data.id);
         adjList.push_back(List);
-        printAdjList();
         count++;
         containsID = true;
     }
@@ -107,9 +106,10 @@ bool Graph::addEdge(Node *vertexOne, Node *vertexTwo, int weight){
         vertexTwo->prev = vertexOne; // Makes an undirectional graph by linking the two
         vertexOne->next = vertexTwo;
         adjList[position].addNode(vertexTwo->data.id, &vertexTwo->data.data, vertexTwo->edge.weight);
+        addedEdge = true;
+        edgeCount++;
     }
     return addedEdge;
-
 } // End of addEdge
 
 int Graph::genEdgeWeight() {return (rand() % 40) + 1;} // End of genEdgeWeight
