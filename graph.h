@@ -36,9 +36,7 @@ class Graph{
         void addToMatrix(Node *);
         void printMatrix();
         int genEdgeWeight();
-        void printEdgesAndWeights();
-        void printLabelList();
-
+        void printAdjList();
 
     private:
         Node *root;

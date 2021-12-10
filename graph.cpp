@@ -40,25 +40,11 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
     return edgeW;
 } // End of getEdgeWeight
 
-void Graph::printLabelList(){
-    for(int i =0; i < adjListLabels.size()-1; i++){
-        std::cout << "Label ID: " << adjListLabels[i] << std::endl;
-    }
-}
-
-void Graph::printEdgesAndWeights(){
-    std::cout << "Vertices: " << std::endl;
+void Graph::printAdjList(){
     for(int i = 0; i < adjList.size(); i++){
-        std::cout << "Vertex: " << i << " : ";
+        std::cout << "Label ID: " << adjListLabels[i];
         adjList[i].printList();
     }
-
-//    std::cout << std::endl;
-//    std::cout << "Edges: ";
-//
-//    std::cout << "\nEdge's Weight: ";
-//
-//    std::cout << std::endl;
 } // End of printEdgesAndWeights
 
 bool Graph::addVertex(int id, string *data){

@@ -70,9 +70,6 @@ int main() {
     std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
-    std::cout << "\nPrinting the Label IDS:" << std::endl;
-    graph.printLabelList();
-
     std::cout << "\nFinding specific vertex. Successful? ";
     gotVertex = graph.getVertex(ids[0], temp);
     if(gotVertex){
@@ -81,8 +78,8 @@ int main() {
         std::cout << "no" << std::endl;
     }
 
-    std::cout << "\nPrinting edges and their weights." << std::endl;
-    graph.printEdgesAndWeights();
+    std::cout << "\nPrinting adjacency list" << std::endl;
+    graph.printAdjList();
 
     didInsert = graph.addVertex(ids[0], &strs[1]);
     std::cout << "insert of vertex with id " << ids[0] << " successful? ";
@@ -92,8 +89,8 @@ int main() {
         std::cout << "no" << std::endl;
     }
 
-    std::cout << "\nPrinting edges and their weights." << std::endl;
-    graph.printEdgesAndWeights();
+    std::cout << "\nPrinting adjacency list" << std::endl;
+    graph.printAdjList();
 //
 //    std::cout << "\nFinding specific edge and edge weight. Weight: ";
 
