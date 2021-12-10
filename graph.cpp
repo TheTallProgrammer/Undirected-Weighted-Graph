@@ -12,7 +12,7 @@
 // Keeps to the formula g = (v,e)
 Graph::Graph(){
     root = nullptr;
-    count = 0, edgeCount = 0, rowInt = 0, colInt = 0, adjListSize = 0;
+    count = 0, edgeCount = 0;
     adjMatSize = count*count;
     adjList = {}, adjListLabels = {};
     adjMatrix = {0, std::vector<Node>(0)};
@@ -56,7 +56,6 @@ bool Graph::addVertex(int id, string *data){
         if(isEmpty()){
             root = newVertex;
             count++;
-            adjListSize = count;
             LinkedList List;
             addedVertex = List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
             // adjListLabels is a parallel array vector that will determine where a new list goes in the adjList
@@ -89,7 +88,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
 } // End of newLocation
 
 bool Graph::addEdge(int vertexOneID, int vertexTwoID, int weight){
-    bool addedEdge = false, hasVOne = false, hasVTwo = false, gotNode;
+    bool addedEdge = false, hasVOne = false, hasVTwo = false;
     int position = 0, positionTwo = 0;
     for(int i = 0; i < adjListLabels.size(); i++){
         if(adjListLabels[i] == vertexOneID){
