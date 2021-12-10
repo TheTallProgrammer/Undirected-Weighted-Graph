@@ -100,7 +100,7 @@ int main() {
     }
 
     bool addedEdge = graph.addEdge(ids[0], ids[1], 20);
-    std::cout << "Attempting to add edge between vertices " << ids[0] << ", " << ids[1] << ". Successful?";
+    std::cout << "\nAttempting to add edge between vertices " << ids[0] << ", " << ids[1] << ". Successful? ";
     if(addedEdge){
         std::cout << "yes" << std::endl;
     } else {

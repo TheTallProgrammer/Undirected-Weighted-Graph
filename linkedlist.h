@@ -19,7 +19,7 @@ public:
     //Methods
     bool addNode(int, string*, int);
     bool deleteNode(int);
-    bool getNode(int, Node *);
+    Node * getNode(int);
     void printList(bool = false);
     int getCount();
     bool clearList();

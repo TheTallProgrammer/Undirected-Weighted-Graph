@@ -42,7 +42,7 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 
 void Graph::printAdjList(){
     for(int i = 0; i < adjList.size(); i++){
-        std::cout << "\t|Label ID: " << adjListLabels[i] << "| " ;
+        std::cout << "\t|Label ID: " << adjListLabels[i] << "| Vertex: " ;
         adjList[i].printList();
         std::cout << std::endl;
     }
@@ -89,33 +89,23 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
 } // End of newLocation
 
 bool Graph::addEdge(int vertexOneID, int vertexTwoID, int weight){
-    bool addedEdge = false, hasVOne = false, hasVTwo = false;
-    Node *vertexOne;
-    Node *vertexTwo;
+    bool addedEdge = false, hasVOne = false, hasVTwo = false, gotNode;
     int position = 0, positionTwo = 0;
     for(int i = 0; i < adjListLabels.size(); i++){
-        std::cout << "inside for loop" << std::endl;
         if(adjListLabels[i] == vertexOneID){
-            std::cout << "inside first if" << std::endl;
-            adjList[i].getNode(vertexOneID, vertexOne);
             hasVOne = true;
             position = i;
         }
         if(adjListLabels[i] == vertexTwoID){
-            std::cout << "inside second if" << std::endl;
-            adjList[i].getNode(vertexTwoID, vertexTwo);
-            hasVTwo = true;
             positionTwo = i;
+            hasVTwo = true;
         }
     }
     // This means that an edge can be created because the two vertices exist
     if(hasVOne && hasVTwo){
-        vertexTwo->edge.weight = weight;
-        // Add both to the list so that it's undirectional
-        std::cout << "has both ids" << std::endl;
-        adjList[position].addNode(vertexTwo->data.id, &vertexTwo->data.data, vertexTwo->edge.weight);
-//        adjList[positionTwo].addNode(vertexOne->data.id, &vertexOne->data.data, vertexTwo->edge.weight);
-        vertexTwo->prev = vertexOne; // Add this to make it undirectional
+        Node *vertexTwo;
+        vertexTwo = adjList[positionTwo].getNode(vertexTwoID);
+        adjList[position].addNode(vertexTwo->data.id, &vertexTwo->data.data, weight);
         addedEdge = true;
         edgeCount++;
     }
@@ -160,14 +150,14 @@ bool Graph::removeVertex(int id){
 
 bool Graph::getVertex(int id, Node &temp){
     bool gotVertex = false;
-    for(int i =0; i < count; i++){
-        if(adjListLabels[i] == id){
-            adjList[i].getNode(id, &temp);
-            if(temp.data.id == id) {
-                gotVertex = true;
-            }
-        }
-    }
+//    for(int i =0; i < count; i++){
+//        if(adjListLabels[i] == id){
+//            adjList[i].getNode(id, &temp);
+//            if(temp.data.id == id) {
+//                gotVertex = true;
+//            }
+//        }
+//    }
     return gotVertex;
 } // End of getVertex
 

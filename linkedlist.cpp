@@ -74,20 +74,20 @@ bool LinkedList::deleteNode(int id){
     return didDelete;
 } // End of deleteNode
 
-bool LinkedList::getNode(int id, Node *tempNode){
+Node *LinkedList::getNode(int id){
     Node *position = head;
     bool gotNode = false;
     while (position!= nullptr && !gotNode) {
-        std::cout << "inside while loop" << std::endl;
         if(id == position->data.id){
-            tempNode = position;
-            std::cout << "tempNode = position" << std::endl;
+//            tempNode = position;
+//            std::cout << tempNode << ", " << position << std::endl;
+//            std::cout << tempNode->data.id << ", " << position->data.id << std::endl;
             gotNode = true;
         } else{
             position = position->next;
         }
     }
-    return gotNode;
+    return position;
 } // End of getNode
 
 void LinkedList::printList(bool backward){
@@ -95,10 +95,9 @@ void LinkedList::printList(bool backward){
     int loopCount = 1;
     if(!backward && position!= nullptr) {
         while (position != nullptr) {
-            std::cout << "Vertex: " << position->data.id;
+            std::cout << position->data.id;
             if(position->next != nullptr){
-                std::cout << " --> ";
-//                [EDGE WEIGHT: " << position->edge.weight << "]
+                std::cout << " --> (weight: " << position->edge.weight << ")";
             }
             position = position->next;
             loopCount += 1;
