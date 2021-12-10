@@ -28,7 +28,7 @@ class Graph{
         bool addVertex(int, string *);
         bool removeEdge(std::pair<int,int> *);
         bool removeVertex(int);
-        bool getVertex(int, Node &);
+        bool getVertex(int, Data &);
         void depthFirstSearch();
         void breadthFirstSearch();
         void initializeVertex(int *, string *, Node *);

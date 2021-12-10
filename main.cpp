@@ -38,7 +38,7 @@ int main() {
     int rNumIndex = 0;
     int id = 0;
     int iterationCount = 1;
-    Node temp;
+    Data tempData;
     bool gotVertex = false;
     int randIndex;
 
@@ -73,9 +73,9 @@ int main() {
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
     std::cout << "\nFinding specific vertex. Successful? ";
-    gotVertex = graph.getVertex(ids[0], temp);
+    gotVertex = graph.getVertex(ids[0], tempData);
     if(gotVertex){
-        std::cout << "Yes. Got vertex: " << temp.data.id << " : " << temp.data.data << std::endl;
+        std::cout << "Yes. Got vertex: " << tempData.id << " : " << tempData.data << std::endl;
     } else {
         std::cout << "no" << std::endl;
     }
@@ -90,6 +90,7 @@ int main() {
     } else {
         std::cout << "no" << std::endl;
     }
+
 
     didInsert = graph.addVertex(ids[1], &strs[1]);
     std::cout << "insert of vertex with id " << ids[randIndex] << " successful? ";

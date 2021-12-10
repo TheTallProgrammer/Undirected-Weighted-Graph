@@ -79,9 +79,6 @@ Node *LinkedList::getNode(int id){
     bool gotNode = false;
     while (position!= nullptr && !gotNode) {
         if(id == position->data.id){
-//            tempNode = position;
-//            std::cout << tempNode << ", " << position << std::endl;
-//            std::cout << tempNode->data.id << ", " << position->data.id << std::endl;
             gotNode = true;
         } else{
             position = position->next;

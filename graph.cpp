@@ -147,16 +147,19 @@ bool Graph::removeVertex(int id){
 
 } // End of removeVertex
 
-bool Graph::getVertex(int id, Node &temp){
+bool Graph::getVertex(int id, Data &data){
+    Node *tempNode;
     bool gotVertex = false;
-//    for(int i =0; i < count; i++){
-//        if(adjListLabels[i] == id){
-//            adjList[i].getNode(id, &temp);
-//            if(temp.data.id == id) {
-//                gotVertex = true;
-//            }
-//        }
-//    }
+    for(int i =0; i < count; i++){
+        if(adjListLabels[i] == id){
+            tempNode = adjList[i].getNode(id);
+            if(tempNode->data.id == id) {
+                data.id = tempNode->data.id;
+                data.data = tempNode->data.data;
+                gotVertex = true;
+            }
+        }
+    }
     return gotVertex;
 } // End of getVertex
 
