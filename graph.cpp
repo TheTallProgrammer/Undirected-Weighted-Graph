@@ -41,7 +41,7 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 } // End of getEdgeWeight
 
 void Graph::printLabelList(){
-    for(int i =0; i < adjListLabels.size(); i++){
+    for(int i =0; i < adjListLabels.size()-1; i++){
         std::cout << "index: " << i << ": Label ID: " << adjListLabels[i] << std::endl;
     }
 }
@@ -67,18 +67,14 @@ bool Graph::addVertex(int id, string *data){
         Node *newVertex = new Node();
         initializeVertex(&id, data, newVertex);
         if(isEmpty()){
-
             root = newVertex;
             count++;
-
             adjListSize = count;
             adjList.resize(adjListSize);
             // adjListPositions is a parallel array vector that will determine where a new list goes in the adjList
             adjListLabels.resize(adjListSize);
-
             LinkedList List;
             List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
-
             adjListLabels.insert(adjListLabels.begin(), newVertex->data.id);
             adjList.insert(adjList.begin(), List);
             addedVertex = true;
@@ -90,20 +86,22 @@ bool Graph::addVertex(int id, string *data){
 } // End of addVertex
 
 bool Graph::newLocation(Node *root, Node *newVertex) {
-    int randInsert = (rand() % 2) + 1;
-    if(randInsert == 1){ // Making the new node adjacent to a previous node
-        randInsert = (rand() % adjList.size());
-        std::cout << "Size of adjList: " << adjList.size() << " : randInsert: " << randInsert << std::endl;
-        adjList[randInsert].addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
-        newVertex->edge.weight = genEdgeWeight();
-        edgeCount++;
-        count++;
-    } else { // Just adding to another list
-        std::cout << "Size of adjList: " << adjList.size() << " : randInsert: " << randInsert << std::endl;
-        count++;
+    bool containsID = false;
+    // The id is already in the list, so just add another node adjacent to it
+    for(int i =0; i < adjListLabels.size()-1; i++) {
+        if(adjListLabels[i] == newVertex->data.id) {
+            adjList[i].addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
+            edgeCount++;
+            count++;
+            containsID = true;
+        }
+    }
+    if(!containsID){ // ID does not exist in the list
         LinkedList List;
         List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
+        adjListLabels.push_back(newVertex->data.id);
         adjList.push_back(List);
+        count++;
     }
     return true;
 } // End of newLocation
@@ -148,13 +146,15 @@ bool Graph::getVertex(int id, Node &temp){
     bool gotVertex = false;
     Data data;
     for(int i =0; i < count; i++){
-        adjList[i].getNode(id, &data);
+        if(adjListLabels[i] == id){
+            adjList[i].getNode(id, &data);
             if(data.id == id) {
                 temp.data.id = data.id;
                 temp.data.data = data.data;
                 gotVertex = true;
             }
         }
+    }
     return gotVertex;
 } // End of getVertex
 
@@ -169,7 +169,7 @@ void Graph::breadthFirstSearch() {
 void Graph::initializeVertex(int *id, string *data, Node *newVertex){
     newVertex->data.id = *id;
     newVertex->data.data = *data;
-    newVertex->edge.weight = 0;
+    newVertex->edge.weight = genEdgeWeight();
     newVertex->next = nullptr;
     newVertex->prev = nullptr;
 } // End of initializeVertex
