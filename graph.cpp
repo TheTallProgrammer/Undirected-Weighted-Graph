@@ -173,17 +173,12 @@ bool Graph::getVertex(int id, Data &data){
 
 void Graph::clearGraph() {
     for(int i = 0; i < adjList.size();i++){
-        if(adjList.size() > 0){
-            adjList[i].clearList();
-        }
-        if(adjListLabels.size() > 0){
-            adjListLabels.erase(adjListLabels.begin());
-        }
+        adjList[i].clearList();
     }
+    adjList.clear();
+    adjListLabels.clear();
     count = 0;
     edgeCount = 0;
-//    adjListLabels.clear();
-
 } // End of clearGraph
 
 void Graph::depthFirstSearch() {
