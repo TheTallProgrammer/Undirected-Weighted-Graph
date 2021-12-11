@@ -26,7 +26,7 @@ class Graph{
         int numOfEdges();
         int getEdgeWeight(std::pair<int,int> *);
         bool addVertex(int, string *);
-        bool removeEdge(std::pair<int,int> *);
+        bool removeEdge(int, int);
         bool removeVertex(int);
         bool getVertex(int, Data &);
         void depthFirstSearch();

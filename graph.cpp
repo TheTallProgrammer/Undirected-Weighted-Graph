@@ -143,8 +143,22 @@ void Graph::printMatrix(){
     }
 } // End of printMatrix
 
-bool Graph::removeEdge(std::pair<int,int> *vertexIds){
-    bool removedEdge = false;
+bool Graph::removeEdge(int vertexOneID, int vertexTwoID){
+    bool addedEdgeOne = false, addedEdgeTwo = false, hasVOne = false, hasVTwo = false, removedEdge = false;
+    int position = 0, positionTwo = 0;
+    for(int i = 0; i < adjListLabels.size(); i++){
+        if(adjListLabels[i] == vertexOneID){
+            hasVOne = true;
+            position = i;
+        }
+        if(adjListLabels[i] == vertexTwoID) {
+            positionTwo = i;
+            hasVTwo = true;
+        }
+    }
+    if(hasVOne && hasVTwo){
+        
+    }
     return removedEdge;
 
 } // End of removeEdge
