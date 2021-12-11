@@ -108,7 +108,10 @@ bool Graph::addEdge(int vertexOneID, int vertexTwoID, int weight){
         vertexTwo = adjList[positionTwo].getNode(vertexTwoID);
         addedEdgeOne = adjList[position].addNode(vertexTwo->data.id, &vertexTwo->data.data, weight);
         addedEdgeTwo = adjList[positionTwo].addNode(vertexOne->data.id, &vertexOne->data.data, weight);
-        if(addedEdgeOne || addedEdgeTwo){
+        if(addedEdgeOne){
+            edgeCount++;
+        }
+        if(addedEdgeTwo){
             edgeCount++;
             addedEdges = true;
         }

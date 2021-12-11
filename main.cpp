@@ -85,7 +85,7 @@ int main() {
 
     std::cout << "\n**TESTING ADDING EDGE**" << std::endl;
     for(int i =0; i < testdatasize; i++){
-        randIndex = (rand() % testdatasize);
+        randIndex = (rand() % testdatasize-1);
         std::cout << "Attempting to add edge between vertex " << ids[i] << " and vertex " << ids[randIndex] << ". Successful? ";
         addedEdge = graph.addEdge(ids[i], ids[randIndex], (rand()%50)+1);
         if(addedEdge){
