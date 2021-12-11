@@ -9,14 +9,13 @@ LinkedList::LinkedList() {
 } // End of constructor
 
 LinkedList::~LinkedList(){
-
+//    clearList();
 } // End of destructor
 
 //Methods
 bool LinkedList::addNode(int id, string *data, int edgeWeight){
     bool didAdd = false;
     Node *position = head;
-
     if(id >= 0 && data->length() > 0 ) {
         while ((head != nullptr) && id > position->data.id && position->next != nullptr) {// Loops through the list to find a spot for the node
             position = position->next;
@@ -89,7 +88,6 @@ Node *LinkedList::getNode(int id){
 
 void LinkedList::printList(bool backward){
     Node *position = head;
-    int loopCount = 1;
     if(!backward && position!= nullptr) {
         while (position != nullptr) {
             std::cout << position->data.id;
@@ -97,7 +95,6 @@ void LinkedList::printList(bool backward){
                 std::cout << " --> (weight: " << position->edge.weight << ")";
             }
             position = position->next;
-            loopCount += 1;
         }
     }
 } // End of printList
@@ -157,22 +154,23 @@ void LinkedList::initializeNode(int *id, string *data, Node *newNode, int *edgeW
 
 bool LinkedList::checkOperation(Node *position, Node *newNode, int *id){
     bool didAdd = false;
-    if(head->data.id > newNode->data.id){// new head
-        insertHead(newNode);
-        didAdd = true;
-    }else if(position->data.id > *id) {// Insert middle node
-        insertMiddle(position, newNode);
-        didAdd = true;
-    }else {
+//    if(head->next->data.id > newNode->data.id){// new head
+//        insertHead(newNode);
+//        didAdd = true;
+//    }else
+//    if(position->data.id > *id) {// Insert middle node
+//        insertMiddle(position, newNode);
+//        didAdd = true;
+//    }else {
         insertTail(position, newNode);// Adds tail node
         didAdd = true;
-    }
+//    }
     return didAdd;
 } // End of checkOperation
 
 void LinkedList::insertHead(Node *newNode){
-    newNode->next = head;
-    head = newNode;
+    newNode->next = head->next;
+    head->next = newNode;
 } // End of inserthead
 
 void LinkedList::insertMiddle(Node *position, Node *newNode){

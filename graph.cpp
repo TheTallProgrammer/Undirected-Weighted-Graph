@@ -88,7 +88,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
 } // End of newLocation
 
 bool Graph::addEdge(int vertexOneID, int vertexTwoID, int weight){
-    bool addedEdge = false, hasVOne = false, hasVTwo = false;
+    bool addedEdgeOne = false, addedEdgeTwo = false, hasVOne = false, hasVTwo = false, addedEdges = false;
     int position = 0, positionTwo = 0;
     for(int i = 0; i < adjListLabels.size(); i++){
         if(adjListLabels[i] == vertexOneID){
@@ -102,13 +102,18 @@ bool Graph::addEdge(int vertexOneID, int vertexTwoID, int weight){
     }
     // This means that an edge can be created because the two vertices exist
     if(hasVOne && hasVTwo){
+        Node *vertexOne;
         Node *vertexTwo;
+        vertexOne = adjList[position].getNode(vertexOneID);
         vertexTwo = adjList[positionTwo].getNode(vertexTwoID);
-        adjList[position].addNode(vertexTwo->data.id, &vertexTwo->data.data, weight);
-        addedEdge = true;
-        edgeCount++;
+        addedEdgeOne = adjList[position].addNode(vertexTwo->data.id, &vertexTwo->data.data, weight);
+        addedEdgeTwo = adjList[positionTwo].addNode(vertexOne->data.id, &vertexOne->data.data, weight);
+        if(addedEdgeOne || addedEdgeTwo){
+            edgeCount++;
+            addedEdges = true;
+        }
     }
-    return addedEdge;
+    return addedEdges;
 } // End of addEdge
 
 int Graph::genEdgeWeight() {return (rand() % 40) + 1;} // End of genEdgeWeight
