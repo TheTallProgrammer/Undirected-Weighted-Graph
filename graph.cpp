@@ -119,8 +119,6 @@ bool Graph::addEdge(int vertexOneID, int vertexTwoID, int weight){
     return addedEdges;
 } // End of addEdge
 
-int Graph::genEdgeWeight() {return (rand() % 40) + 1;} // End of genEdgeWeight
-
 void Graph::addToMatrix(Node *newVertex){
     for(int i = 0; i < adjMatSize; i++){
         for(int j = 0; j < adjMatSize; j++){
@@ -182,7 +180,7 @@ void Graph::breadthFirstSearch() {
 void Graph::initializeVertex(int *id, string *data, Node *newVertex){
     newVertex->data.id = *id;
     newVertex->data.data = *data;
-    newVertex->edge.weight = genEdgeWeight();
+    newVertex->edge.weight = 0;
     newVertex->next = nullptr;
     newVertex->prev = nullptr;
 } // End of initializeVertex

@@ -92,7 +92,7 @@ void LinkedList::printList(bool backward){
         while (position != nullptr) {
             std::cout << position->data.id;
             if(position->next != nullptr){
-                std::cout << " --> (weight: " << position->edge.weight << ")";
+                std::cout << " --> (weight: " << position->next->edge.weight << ")";
             }
             position = position->next;
         }
