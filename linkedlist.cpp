@@ -154,35 +154,10 @@ void LinkedList::initializeNode(int *id, string *data, Node *newNode, int *edgeW
 
 bool LinkedList::checkOperation(Node *position, Node *newNode, int *id){
     bool didAdd = false;
-//    if(head->next->data.id > newNode->data.id){// new head
-//        insertHead(newNode);
-//        didAdd = true;
-//    }else
-//    if(position->data.id > *id) {// Insert middle node
-//        insertMiddle(position, newNode);
-//        didAdd = true;
-//    }else {
-        insertTail(position, newNode);// Adds tail node
-        didAdd = true;
-//    }
+    insertTail(position, newNode);// Adds tail node
+    didAdd = true;
     return didAdd;
 } // End of checkOperation
-
-void LinkedList::insertHead(Node *newNode){
-    newNode->next = head->next;
-    head->next = newNode;
-} // End of inserthead
-
-void LinkedList::insertMiddle(Node *position, Node *newNode){
-    Node *prev;
-    Node *curr = head;
-    while(curr != position){
-        prev = curr;
-        curr = curr->next;
-    }
-    prev->next = newNode;
-    newNode->next = curr;
-} // End of insertMiddle
 
 void LinkedList::insertTail(Node *position, Node *newNode){
     position->next = newNode;

@@ -34,8 +34,6 @@ private:
     // Private methods
     void initializeNode(int *, string*, Node*, int *);
     bool checkOperation(Node *, Node *, int *);
-    void insertHead(Node *);
-    void insertMiddle(Node *, Node *);
     void insertTail(Node *, Node *);
 
 }; // End of class LinkedList
