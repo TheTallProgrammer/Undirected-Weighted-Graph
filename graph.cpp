@@ -16,7 +16,6 @@ Graph::Graph(){
     adjMatSize = count*count;
     adjList = {}, adjListLabels = {};
     adjMatrix = {0, std::vector<Node>(0)};
-    srand (time(NULL));
 } // End of constructor
 
 Graph::~Graph(){
@@ -144,7 +143,7 @@ void Graph::printMatrix(){
 } // End of printMatrix
 
 bool Graph::removeEdge(int vertexOneID, int vertexTwoID){
-    bool addedEdgeOne = false, addedEdgeTwo = false, hasVOne = false, hasVTwo = false, removedEdge = false;
+    bool removedEdgeOne = false, removedEdgeTwo = false, hasVOne = false, hasVTwo = false, removedEdges = false;
     int position = 0, positionTwo = 0;
     for(int i = 0; i < adjListLabels.size(); i++){
         if(adjListLabels[i] == vertexOneID){
@@ -157,9 +156,19 @@ bool Graph::removeEdge(int vertexOneID, int vertexTwoID){
         }
     }
     if(hasVOne && hasVTwo){
-        
+        Node *vertexOne;
+        Node *vertexTwo;
+        removedEdgeOne = adjList[position].deleteNode(vertexTwoID);
+        removedEdgeTwo = adjList[positionTwo].deleteNode(vertexOneID);
+        if(removedEdgeOne){
+            edgeCount--;
+        }
+        if(removedEdgeTwo){
+            edgeCount--;
+            removedEdges = true;
+        }
     }
-    return removedEdge;
+    return removedEdges;
 
 } // End of removeEdge
 

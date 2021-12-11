@@ -39,13 +39,13 @@ bool LinkedList::deleteNode(int id){
     bool didDelete = false;
     Node *position = head;
     while(position!=nullptr && !didDelete){
-        if (id == position->data.id){ // Deleting head node
-            if (position == head) {
+        if (id == position->data.id){
+            if (position == head) { // Deleting head node
                 head = head->next;
                 position->next = nullptr;
                 delete position;
                 didDelete = true;
-            }else if (position->next){ // Deleting middle node
+            }if (position->next){ // Deleting middle node
                 Node *curr, *prev;
                 curr = head;
                 while(curr != position){
@@ -55,7 +55,7 @@ bool LinkedList::deleteNode(int id){
                 prev->next = curr->next;
                 delete position;
                 didDelete = true;
-            }else if (position->next == nullptr){ // Deleting tail node
+            }if (position->next == nullptr){ // Deleting tail node
                 Node*prev= nullptr;
                 Node*curr= head;
                 while(curr!=position){
