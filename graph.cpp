@@ -43,7 +43,9 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 void Graph::printAdjList(){
     for(int i = 0; i < adjList.size(); i++){
         std::cout << "\t|Label ID: " << adjListLabels[i] << "| Vertex: " ;
-        adjList[i].printList();
+        if(adjList.size() > 0){
+            adjList[i].printList();
+        }
         std::cout << std::endl;
     }
 } // End of printEdgesAndWeights
@@ -176,6 +178,7 @@ void Graph::clearGraph() {
     }
     count = 0;
     edgeCount = 0;
+    adjListLabels.clear();
 } // End of clearGraph
 
 void Graph::depthFirstSearch() {
