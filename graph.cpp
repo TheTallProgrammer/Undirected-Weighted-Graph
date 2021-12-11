@@ -20,9 +20,7 @@ Graph::Graph(){
 } // End of constructor
 
 Graph::~Graph(){
-    for(int i = 0; i < adjList.size();i++){
-        adjList[i].clearList();
-    }
+    clearGraph();
 } // End of destructor
 
 bool Graph::isEmpty(){
