@@ -177,8 +177,7 @@ void Graph::clearGraph() {
     }
     adjList.clear();
     adjListLabels.clear();
-    count = 0;
-    edgeCount = 0;
+    count = 0, edgeCount = 0;
 } // End of clearGraph
 
 void Graph::depthFirstSearch() {
