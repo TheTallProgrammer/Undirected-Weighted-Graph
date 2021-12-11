@@ -20,7 +20,9 @@ Graph::Graph(){
 } // End of constructor
 
 Graph::~Graph(){
-
+    for(int i = 0; i < adjList.size();i++){
+        adjList[i].clearList();
+    }
 } // End of destructor
 
 bool Graph::isEmpty(){
@@ -168,6 +170,15 @@ bool Graph::getVertex(int id, Data &data){
     }
     return gotVertex;
 } // End of getVertex
+
+void Graph::clearGraph() {
+    for(int i = 0; i < adjList.size();i++){
+        adjList[i].clearList();
+        adjListLabels[i] = 0;
+    }
+    count = 0;
+    edgeCount = 0;
+} // End of clearGraph
 
 void Graph::depthFirstSearch() {
 

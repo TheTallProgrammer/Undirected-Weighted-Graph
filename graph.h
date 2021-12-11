@@ -37,6 +37,7 @@ class Graph{
         void printMatrix();
         void printAdjList();
         bool addEdge(int , int, int);
+        void clearGraph();
 
     private:
         Node *root;
