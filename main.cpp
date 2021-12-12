@@ -30,7 +30,7 @@ int main() {
     bool didRemove = false;
     std::string data;
     int rNumCase = 0;
-    int rNumIndex = 0;
+    int rNumIndex = 0, rNumIndex2 = 0;
     int id = 0;
     int iterationCount = 1;
     Data tempData;
@@ -202,9 +202,10 @@ int main() {
     randIndex = (rand() % testdatasize);
     // Main testing for loop
     std::cout << "\n================== ================== INITIATING LOOP TESTING ================== ==================" << std::endl;
-    for(int i =0; i < 1000; i++){
+    for(int i =0; i < 100; i++){
         // Picks random index
         rNumIndex = (rand() % testdatasize);
+        rNumIndex2 = (rand() % testdatasize);
         rNumCase = (rand()%5)+1;
         std::cout<<"\nIteration: " << iterationCount;
 
@@ -228,7 +229,7 @@ int main() {
             case 2: // ADD EDGE
                 std::cout << " case 2" << std::endl;
                 addedEdge = graph.addEdge(ids[rNumIndex], ids[rNumIndex+1], (rand()%99)+1);
-                std::cout << "Attempting to add edge between vertex " << ids[rNumIndex] << " and vertex " << ids[rNumIndex+1] << ". Successful? ";
+                std::cout << "Attempting to add edge between vertex " << ids[rNumIndex] << " and vertex " << ids[rNumIndex2] << ". Successful? ";
                 if(addedEdge){
                     std::cout << "yes" << std::endl;
                 } else {
@@ -259,7 +260,7 @@ int main() {
 
             case 4: // REMOVE EDGE
                 std::cout << " case 4" << std::endl;
-                std::cout << "Attempting to remove edge between vertex " << ids[rNumIndex] << " and vertex " << ids[rNumIndex+1] << ". Successful? ";
+                std::cout << "Attempting to remove edge between vertex " << ids[rNumIndex] << " and vertex " << ids[rNumIndex2] << ". Successful? ";
                 didRemove = graph.removeEdge(ids[rNumIndex], ids[rNumIndex+1]);
                 if(didRemove){
                     std::cout << "yes" << std::endl;
