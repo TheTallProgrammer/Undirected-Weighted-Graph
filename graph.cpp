@@ -53,8 +53,7 @@ bool Graph::addVertex(int id, string *data){
 } // End of addVertex
 
 bool Graph::newLocation(Node *root, Node *newVertex) {
-    bool containsID = false;
-    bool didAdd = false;
+    bool containsID = false, didAdd = false;
     for(int i =0; i < adjListLabels.size(); i++) {
         if(adjListLabels[i] == newVertex->data.id){containsID = true;}
     }
