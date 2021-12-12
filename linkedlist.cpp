@@ -50,20 +50,14 @@ bool LinkedList::deleteNode(int id){
             }if (position->next){ // Deleting middle node
                 Node *curr, *prev;
                 curr = head;
-                while(curr != position){
-                    prev = curr;
-                    curr = curr->next;
-                }
+                while(curr != position){prev = curr; curr = curr->next;}
                 prev->next = curr->next;
                 delete position;
                 didDelete = true;
             }if (position->next == nullptr){ // Deleting tail node
                 Node*prev= nullptr;
                 Node*curr= head;
-                while(curr!=position){
-                    prev= curr;
-                    curr=curr->next;
-                }
+                while(curr!=position){prev= curr; curr=curr->next;}
                 prev->next= nullptr;
                 tail = prev;
                 delete position;
@@ -93,9 +87,7 @@ void LinkedList::printList(bool backward){
     if(!backward && position!= nullptr) {
         while (position != nullptr) {
             std::cout << position->data.id;
-            if(position->next != nullptr){
-                std::cout << " --> (weight: " << position->next->edge.weight << ")";
-            }
+            if(position->next != nullptr){std::cout << " --> (weight: " << position->next->edge.weight << ")";}
             position = position->next;
         }
     }
@@ -104,10 +96,7 @@ void LinkedList::printList(bool backward){
 int LinkedList::getCount(){
     int count = 0;
     Node *position = head;
-    while(head != nullptr && position != nullptr){
-        count++;
-        position = position->next;
-    }
+    while(head != nullptr && position != nullptr){count++; position = position->next;}
     return count;
 } // End of getCount
 
@@ -127,9 +116,7 @@ bool LinkedList::exists(int id){
     Node *position = head;
     bool doesExist = false;
     while(position!=nullptr){
-        if(id == position->data.id){
-            doesExist = true;
-        }
+        if(id == position->data.id){doesExist = true;}
         position = position->next;
     }
     return doesExist;
