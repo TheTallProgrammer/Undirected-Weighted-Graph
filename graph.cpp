@@ -39,7 +39,7 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 } // End of getEdgeWeight
 
 void Graph::printAdjList(){
-    for(int i = 0; i < adjListLabels.size()+1; i++){
+    for(int i = 0; i < adjListLabels.size(); i++){
         std::cout << "\t|Label ID: " << adjListLabels[i] << "| Vertex: " ;
         if(adjList.size() > 0){
             adjList[i].printList();
@@ -49,7 +49,6 @@ void Graph::printAdjList(){
 } // End of printEdgesAndWeights
 
 bool Graph::addVertex(int id, string *data){
-
     bool addedVertex = false;
     if(id > 0 && data->length() > 0){
         Node *newVertex = new Node();
@@ -131,8 +130,6 @@ bool Graph::removeEdge(int vertexOneID, int vertexTwoID){
         }
     }
     if(hasVOne && hasVTwo){
-        Node *vertexOne;
-        Node *vertexTwo;
         removedEdgeOne = adjList[position].deleteNode(vertexTwoID);
         removedEdgeTwo = adjList[positionTwo].deleteNode(vertexOneID);
         if(removedEdgeTwo || removedEdgeOne){
@@ -157,11 +154,12 @@ bool Graph::removeVertex(int id){
         edges = adjList[idPos].getCount() - 1;
         edgeCount = edgeCount - edges;
         adjList[idPos].clearList();
-        if(idPos > 0){
-            idPos = idPos-1;
-        }
-        // Erase the specific vertex that the label is at 
+//        if(idPos > 0){
+//            idPos = idPos-1;
+//        }
+        // Erase the specific vertex that the label is at
         adjListLabels.erase(adjListLabels.begin() + idPos);
+//        adjListLabels.erase(adjListLabels.begin() + idPos-1);
         count--;
         removedVertex = true;
     }
