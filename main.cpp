@@ -158,7 +158,7 @@ int main() {
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
     std::cout << "\nRemoving specific vertex" << std::endl;
-    std::cout << "Attempting to remove vertex " << ids[1] << ". Successful? " << std::endl;
+    std::cout << "Attempting to remove vertex " << ids[1] << ". Successful? ";
     didRemove = graph.removeVertex(ids[1]);
     if(didRemove){
         std::cout << "yes" << std::endl;
