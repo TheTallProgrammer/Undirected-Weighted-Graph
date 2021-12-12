@@ -109,10 +109,7 @@ bool Graph::addEdge(int vertexOneID, int vertexTwoID, int weight){
         vertexTwo = adjList[positionTwo].getNode(vertexTwoID);
         addedEdgeOne = adjList[position].addNode(vertexTwo->data.id, &vertexTwo->data.data, weight);
         addedEdgeTwo = adjList[positionTwo].addNode(vertexOne->data.id, &vertexOne->data.data, weight);
-        if(addedEdgeOne){
-            edgeCount++;
-        }
-        if(addedEdgeTwo){
+        if(addedEdgeTwo || addedEdgeOne){
             edgeCount++;
             addedEdges = true;
         }
@@ -160,10 +157,7 @@ bool Graph::removeEdge(int vertexOneID, int vertexTwoID){
         Node *vertexTwo;
         removedEdgeOne = adjList[position].deleteNode(vertexTwoID);
         removedEdgeTwo = adjList[positionTwo].deleteNode(vertexOneID);
-        if(removedEdgeOne){
-            edgeCount--;
-        }
-        if(removedEdgeTwo){
+        if(removedEdgeTwo || removedEdgeOne){
             edgeCount--;
             removedEdges = true;
         }
@@ -173,9 +167,27 @@ bool Graph::removeEdge(int vertexOneID, int vertexTwoID){
 } // End of removeEdge
 
 bool Graph::removeVertex(int id){
-    bool removedVertex = false;
+    bool removedVertex = false, containsID = false;
+    int idPos = 0, edges = 0;
+    for(int i = 0; i < adjListLabels.size(); i++){
+        if(adjListLabels[i] == id){
+            idPos = i;
+            containsID = true;
+        }
+    }
+    if(containsID){
+        edges = adjList[idPos].getCount() - 1;
+        edgeCount = edgeCount - edges;
+        adjList[idPos].clearList();
+        if(idPos > 0){
+            idPos = idPos-1;
+        }
+        std::cout << "Erasing at idPos: " << idPos << std::endl;
+        adjListLabels.erase(adjListLabels.begin() + (idPos));
+        count--;
+        removedVertex = true;
+    }
     return removedVertex;
-
 } // End of removeVertex
 
 bool Graph::getVertex(int id, Data &data){

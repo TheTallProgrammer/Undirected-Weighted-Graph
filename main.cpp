@@ -144,6 +144,27 @@ int main() {
     } else {
         std::cout << "no" << std::endl;
     }
+    std::cout << "Attempting to remove edge between vertex " << ids[1] << " and vertex " << ids[2] << ". Successful? ";
+    didRemove = graph.removeEdge(ids[1], ids[2]);
+    if(didRemove){
+        std::cout << "yes" << std::endl;
+    } else {
+        std::cout << "no" << std::endl;
+    }
+
+    std::cout << "\nPrinting adjacency list:" << std::endl;
+    graph.printAdjList();
+    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+
+    std::cout << "\nRemoving specific vertex" << std::endl;
+    std::cout << "Attempting to remove vertex " << ids[0] << ". Successful? " << std::endl;
+    didRemove = graph.removeVertex(ids[0]);
+    if(didRemove){
+        std::cout << "yes" << std::endl;
+    } else {
+        std::cout << "no" << std::endl;
+    }
 
     std::cout << "\nPrinting adjacency list:" << std::endl;
     graph.printAdjList();
