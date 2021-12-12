@@ -124,13 +124,15 @@ bool Graph::removeEdge(int vertexOneID, int vertexTwoID){
         }
     }
     if(hasVOne && hasVTwo){
-        removedEdgeOne = adjList[position].deleteNode(vertexTwoID);
-        removedEdgeTwo = adjList[positionTwo].deleteNode(vertexOneID);
-        if(removedEdgeTwo && removedEdgeOne){
-            if(edgeCount > 0){
-                edgeCount--;
+        if(vertexOneID != vertexTwoID) { // Make sure that the two vertices aren't duplicate ids
+            removedEdgeOne = adjList[position].deleteNode(vertexTwoID);
+            removedEdgeTwo = adjList[positionTwo].deleteNode(vertexOneID);
+            if (removedEdgeTwo && removedEdgeOne) {
+                if (edgeCount > 0) {
+                    edgeCount--;
+                }
+                removedEdges = true;
             }
-            removedEdges = true;
         }
     }
     return removedEdges;
@@ -148,9 +150,6 @@ bool Graph::removeVertex(int id){
     if(containsID){
         edges = adjList[idPos].getCount() - 1;
         edgeCount = edgeCount - edges;
-        if(edgeCount < 0){
-            edgeCount = 0;
-        }
         adjList[idPos].clearList();
         for(int i =0 ; i < adjList.size(); i++){
             removedVertex = adjList[i].deleteNode(id);
@@ -162,6 +161,9 @@ bool Graph::removeVertex(int id){
         adjListLabels.erase(adjListLabels.begin() + idPos);
         adjList.erase(adjList.begin()+idPos);
         count--;
+        if(edgeCount < 0){
+            edgeCount = 0;
+        }
         removedVertex = true;
     }
     return removedVertex;

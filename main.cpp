@@ -38,7 +38,7 @@ int main() {
     int randIndex;
     bool addedEdge = false;
 
-    // create your hash graph object here
+    // create your graph object here
     Graph graph;
     // ================== ================== CHECKING GRAPH STATUS ================== ==================
 
@@ -57,7 +57,7 @@ int main() {
     randIndex = (rand() % testdatasize);
     // Main testing for loop
     std::cout << "\n================== ================== INITIATING LOOP TESTING ================== ==================" << std::endl;
-    for(int i =0; i < 50; i++){
+    for(int i =0; i < 300; i++){
         // Picks random index
         rNumIndex = (rand() % testdatasize);
         rNumIndex2 = (rand() % testdatasize);
@@ -83,7 +83,7 @@ int main() {
 
             case 2: // ADD EDGE
                 std::cout << " case 2" << std::endl;
-                addedEdge = graph.addEdge(ids[rNumIndex], ids[rNumIndex+1], (rand()%99)+1);
+                addedEdge = graph.addEdge(ids[rNumIndex], ids[rNumIndex2], (rand()%99)+1);
                 std::cout << "Attempting to add edge between vertex " << ids[rNumIndex] << " and vertex " << ids[rNumIndex2] << ". Successful? ";
                 if(addedEdge){
                     std::cout << "yes" << std::endl;
@@ -115,8 +115,9 @@ int main() {
 
             case 4: // REMOVE EDGE
                 std::cout << " case 4" << std::endl;
-                std::cout << "Attempting to remove edge between vertex " << ids[rNumIndex] << " and vertex " << ids[rNumIndex2] << ". Successful? ";
-                didRemove = graph.removeEdge(ids[rNumIndex], ids[rNumIndex+1]);
+                std::cout << "ID SIZE: " << testdatasize << ", rNumIndex: " << rNumIndex << ", rNumIndex2: " << rNumIndex2 << ", adjList size: " << graph.numOfVertices() << std::endl;
+                std::cout << "Attempting to remove edge between vertex " << ids[rNumIndex] << " and vertex " << ids[rNumIndex2] << ". Successful? " << std::endl;
+                didRemove = graph.removeEdge(ids[rNumIndex], ids[rNumIndex2]);
                 if(didRemove){
                     std::cout << "yes" << std::endl;
                 } else {
