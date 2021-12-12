@@ -126,7 +126,7 @@ bool Graph::removeEdge(int vertexOneID, int vertexTwoID){
     if(hasVOne && hasVTwo){
         removedEdgeOne = adjList[position].deleteNode(vertexTwoID);
         removedEdgeTwo = adjList[positionTwo].deleteNode(vertexOneID);
-        if(removedEdgeTwo || removedEdgeOne){
+        if(removedEdgeTwo && removedEdgeOne){
             if(edgeCount > 0){
                 edgeCount--;
             }
