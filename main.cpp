@@ -59,7 +59,7 @@ int main() {
 
     // try and put ALL the test data into the graph and show what happens
     // Testing insert/remove methods
-    std::cout << "\n**TESTING INSERT/REMOVE**" << std::endl;
+    std::cout << "\n**TESTING INSERT*" << std::endl;
     for(int i =0; i < testdatasize; i++){
         didInsert = graph.addVertex(ids[i], &strs[i]);
         std::cout << "insert of vertex with id " << ids[i] << " successful? ";
@@ -108,7 +108,7 @@ int main() {
     std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
-    std::cout << "\n**TESTING INSERT/REMOVE**" << std::endl;
+    std::cout << "\n**TESTING INSERT**" << std::endl;
     for(int i =0; i < 3; i++){
         didInsert = graph.addVertex(ids[i], &strs[i]);
         std::cout << "insert of vertex with id " << ids[i] << " successful? ";
