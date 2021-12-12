@@ -96,7 +96,7 @@ bool Graph::removeEdge(int vertexOneID, int vertexTwoID){
     int position = 0, positionTwo = 0;
     for(int i = 0; i < adjListLabels.size(); i++){
         if(adjListLabels[i] == vertexOneID){hasVOne = true; position = i;}
-        if(adjListLabels[i] == vertexTwoID){positionTwo = i;hasVTwo = true;}
+        if(adjListLabels[i] == vertexTwoID){positionTwo = i; hasVTwo = true;}
     }
     if(hasVOne && hasVTwo){
         if(vertexOneID != vertexTwoID) { // Make sure that the two vertices aren't duplicate ids
@@ -115,10 +115,7 @@ bool Graph::removeVertex(int id){
     bool removedVertex = false, containsID = false;
     int idPos = 0, edges = 0;
     for(int i = 0; i < adjListLabels.size(); i++){
-        if(adjListLabels[i] == id){
-            idPos = i;
-            containsID = true;
-        }
+        if(adjListLabels[i] == id){idPos = i; containsID = true;}
     }
     if(containsID){
         edges = adjList[idPos].getCount()-1;
