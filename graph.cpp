@@ -15,7 +15,6 @@ Graph::Graph(){
     count = 0, edgeCount = 0;
     adjMatSize = count*count;
     adjList = {}, adjListLabels = {};
-    adjMatrix = {0, std::vector<Node>(0)};
 } // End of constructor
 
 Graph::~Graph(){
@@ -50,6 +49,7 @@ void Graph::printAdjList(){
 } // End of printEdgesAndWeights
 
 bool Graph::addVertex(int id, string *data){
+
     bool addedVertex = false;
     if(id > 0 && data->length() > 0){
         Node *newVertex = new Node();
@@ -61,6 +61,11 @@ bool Graph::addVertex(int id, string *data){
             addedVertex = List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
             // adjListLabels is a parallel array vector that will determine where a new list goes in the adjList
             adjListLabels.push_back(newVertex->data.id);
+            std::cout << "adjListLabels size " << adjListLabels.size() << std::endl;
+            std::cout << "adjListLabels index 0 " << adjListLabels[0] << std::endl;
+            std::cout << "adjListLabels size " << adjListLabels.size() << std::endl;
+            std::cout << "adjListLabels index 0 " << adjListLabels[1] << std::endl;
+            std::cout << "adjListLabels size " << adjListLabels.size() << std::endl;
             adjList.push_back(List);
         } else {
             addedVertex = newLocation(root, newVertex);
@@ -116,28 +121,6 @@ bool Graph::addEdge(int vertexOneID, int vertexTwoID, int weight){
     }
     return addedEdges;
 } // End of addEdge
-
-void Graph::addToMatrix(Node *newVertex){
-    for(int i = 0; i < adjMatSize; i++){
-        for(int j = 0; j < adjMatSize; j++){
-
-        }
-    }
-} // End of add to list
-
-void Graph::printMatrix(){
-    std::cout << "count: " << count << std::endl;
-    for(int i =0; i < count-1; i++){
-        std::cout << "loop 1" << std::endl;
-        for(int j = 0; j < count-1; j++){
-            std::cout << "loop 2" << std::endl;
-            if(adjMatrix[i][j].data.id > 0){
-                std::cout << adjMatrix[i][j].data.data << " ";
-            }
-        }
-        std::cout << std::endl;
-    }
-} // End of printMatrix
 
 bool Graph::removeEdge(int vertexOneID, int vertexTwoID){
     bool removedEdgeOne = false, removedEdgeTwo = false, hasVOne = false, hasVTwo = false, removedEdges = false;
@@ -215,14 +198,6 @@ void Graph::clearGraph() {
     std::cout << "adjListLabels size: " << adjListLabels.size() << adjListLabels[0] << std::endl;
     count = 0, edgeCount = 0;
 } // End of clearGraph
-
-void Graph::depthFirstSearch() {
-
-} // End of depthFirstSearch
-
-void Graph::breadthFirstSearch() {
-
-} // End of breadthFirstSearch
 
 void Graph::initializeVertex(int *id, string *data, Node *newVertex){
     newVertex->data.id = *id;

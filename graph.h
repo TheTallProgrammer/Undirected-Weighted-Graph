@@ -29,12 +29,8 @@ class Graph{
         bool removeEdge(int, int);
         bool removeVertex(int);
         bool getVertex(int, Data &);
-        void depthFirstSearch();
-        void breadthFirstSearch();
         void initializeVertex(int *, string *, Node *);
         bool newLocation(Node *, Node *);
-        void addToMatrix(Node *);
-        void printMatrix();
         void printAdjList();
         bool addEdge(int , int, int);
         void clearGraph();
@@ -42,7 +38,6 @@ class Graph{
     private:
         Node *root;
         // Creating a 2d vector array for the adjMatrix
-        std::vector<std::vector<Node>> adjMatrix;
         std::vector<LinkedList> adjList;
         std::vector<int> adjListLabels;
         int count, adjMatSize, edgeCount;
