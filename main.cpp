@@ -1,3 +1,8 @@
+/*********************
+Name: Logan Falkenberg
+Final Project
+Purpose: This is the main file for testing. It creates an instance of the graph class and runs all methods randomly.
+**********************/
 #include "main.h"
 
 int main() {
@@ -48,7 +53,7 @@ int main() {
 
     // Main testing for loop
     std::cout << "\n================== ================== INITIATING LOOP TESTING ================== ==================" << std::endl;
-    for(int i =0; i < 50; i++){
+    for(int i =0; i < 300; i++){
         // Picks random index
         rNumIndex = (rand() % testdatasize);
         rNumIndex2 = (rand() % testdatasize);

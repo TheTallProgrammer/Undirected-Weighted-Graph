@@ -1,6 +1,8 @@
-//
-// Created by Logan on 11/13/2021.
-//
+/*********************
+Name: Logan Falkenberg
+Final Project
+Purpose: This file contains the methods of class linkedList. Is implemented inside of the graph class.
+**********************/
 
 #include "linkedlist.h"
 

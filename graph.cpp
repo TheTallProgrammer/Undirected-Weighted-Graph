@@ -1,6 +1,8 @@
-//
-// Created by Logan on 11/22/2021.
-//
+/*********************
+Name: Logan Falkenberg
+Final Project
+Purpose: This is the main file for the graph class. It contains all methods for the full functionality of a graph.
+**********************/
 
 #include "graph.h"
 

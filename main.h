@@ -1,6 +1,8 @@
-//
-// Created by Logan on 11/22/2021.
-//
+/*********************
+Name: Logan Falkenberg
+Final Project
+Purpose: This is the header file for the testing class. Includes all needed libraries/modules in order to run all tests.
+**********************/
 
 #ifndef GRAPH_MAIN_H
 #define GRAPH_MAIN_H

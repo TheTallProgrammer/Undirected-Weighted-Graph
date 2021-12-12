@@ -1,6 +1,8 @@
-//
-// Created by Logan on 11/13/2021.
-//
+/*********************
+Name: Logan Falkenberg
+Final Project
+Purpose: Contains the prototype attributes/methods to manipulate a singly linked list.
+**********************/
 
 #ifndef SIMPLE_LINKED_LIST_LINKEDLIST_H
 #define SIMPLE_LINKED_LIST_LINKEDLIST_H

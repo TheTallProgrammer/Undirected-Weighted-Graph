@@ -1,6 +1,8 @@
-//
-// Created by Logan on 11/22/2021.
-//
+/*********************
+Name: Logan Falkenberg
+Final Project
+Purpose: This file is the header file for the graph class. Includes all needed libraries/modules in order for the main file to function.
+**********************/
 
 #ifndef GRAPH_GRAPH_H
 #define GRAPH_GRAPH_H
