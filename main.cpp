@@ -53,150 +53,142 @@ int main() {
     }
 
     // ================== ================== ADDING VERTEX ================== ==================
-//    std::cout << "\n**TESTING INSERT*" << std::endl;
-//    for(int i =0; i < testdatasize; i++){
-//        didInsert = graph.addVertex(ids[i], &strs[i]);
-//        std::cout << "insert of vertex with id " << ids[i] << " successful? ";
-//        if(didInsert){
-//            std::cout << "yes" << std::endl;
-//        } else {
-//            std::cout << "no" << std::endl;
-//        }
-//    }
-//
-//    std::cout << "\nPrinting adjacency list:" << std::endl;
-//    graph.printAdjList();
-//    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
-//    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
-//
+
+    std::cout << "\n**TESTING INSERT*" << std::endl;
+    for(int i =0; i < testdatasize; i++){
+        didInsert = graph.addVertex(ids[i], &strs[i]);
+        std::cout << "insert of vertex with id " << ids[i] << " successful? ";
+        if(didInsert){
+            std::cout << "yes" << std::endl;
+        } else {
+            std::cout << "no" << std::endl;
+        }
+    }
+
+    std::cout << "\nPrinting adjacency list:" << std::endl;
+    graph.printAdjList();
+    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
     // ================== ================== FINDING VERTEX DATA ================== ==================
 
-//    std::cout << "\nFinding specific vertex. Successful? ";
-//    gotVertex = graph.getVertex(ids[0], tempData);
-//    if(gotVertex){
-//        std::cout << "Yes. Got vertex: " << tempData.id << " : " << tempData.data << std::endl;
-//    } else {
-//        std::cout << "no" << std::endl;
-//    }
+    std::cout << "\nFinding specific vertex. Successful? ";
+    gotVertex = graph.getVertex(ids[0], tempData);
+    if(gotVertex){
+        std::cout << "Yes. Got vertex: " << tempData.id << " : " << tempData.data << std::endl;
+    } else {
+        std::cout << "no" << std::endl;
+    }
 
     // ================== ================== ADDING EDGE ================== ==================
 
-//
-//    std::cout << "\n**TESTING ADDING EDGE**" << std::endl;
-//    for(int i =0; i < testdatasize; i++){
-//        randIndex = (rand() % testdatasize-1);
-//        std::cout << "Attempting to add edge between vertex " << ids[i] << " and vertex " << ids[randIndex] << ". Successful? ";
-//        addedEdge = graph.addEdge(ids[i], ids[randIndex], (rand()%50)+1);
-//        if(addedEdge){
-//            std::cout << "yes" << std::endl;
-//        } else {
-//            std::cout << "no" << std::endl;
-//        }
-//    }
-//
-//    std::cout << "\nPrinting adjacency list:" << std::endl;
-//    graph.printAdjList();
-//    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
-//    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
-//
+    std::cout << "\n**TESTING ADDING EDGE**" << std::endl;
+    for(int i =0; i < testdatasize; i++){
+        randIndex = (rand() % testdatasize-1);
+        std::cout << "Attempting to add edge between vertex " << ids[i] << " and vertex " << ids[randIndex] << ". Successful? ";
+        addedEdge = graph.addEdge(ids[i], ids[randIndex], (rand()%50)+1);
+        if(addedEdge){
+            std::cout << "yes" << std::endl;
+        } else {
+            std::cout << "no" << std::endl;
+        }
+    }
+
+    std::cout << "\nPrinting adjacency list:" << std::endl;
+    graph.printAdjList();
+    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
     // ================== ================== CLEARING GRAPH ================== ==================
 
-//    std::cout << "\n**Clearing the graph**" << std::endl;
-//    graph.clearGraph();
-//
-//    std::cout << "\nPrinting adjacency list:" << std::endl;
-//    graph.printAdjList();
-//    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
-//    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+    std::cout << "\n**Clearing the graph**" << std::endl;
+    graph.clearGraph();
+
+    std::cout << "\nPrinting adjacency list:" << std::endl;
+    graph.printAdjList();
+    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
     // ================== ================== ADDING VERTEX ================== ==================
 
-//
-//    std::cout << "\n**TESTING INSERT**" << std::endl;
-//    for(int i =0; i < 3; i++){
-//        didInsert = graph.addVertex(ids[i], &strs[i]);
-//        std::cout << "insert of vertex with id " << ids[i] << " successful? ";
-//        if(didInsert){
-//            std::cout << "yes" << std::endl;
-//        } else {
-//            std::cout << "no" << std::endl;
-//        }
-//    }
-//
+    std::cout << "\n**TESTING INSERT**" << std::endl;
+    for(int i =0; i < 3; i++){
+        didInsert = graph.addVertex(ids[i], &strs[i]);
+        std::cout << "insert of vertex with id " << ids[i] << " successful? ";
+        if(didInsert){
+            std::cout << "yes" << std::endl;
+        } else {
+            std::cout << "no" << std::endl;
+        }
+    }
 
     // ================== ================== ADDING EDGE ================== ==================
 
-//    std::cout << "\n**TESTING ADDING EDGE**" << std::endl;
-//    for(int i =0; i < testdatasize; i++){
-//        randIndex = (rand() % testdatasize-1);
-//        std::cout << "Attempting to add edge between vertex " << ids[i] << " and vertex " << ids[randIndex] << ". Successful? ";
-//        addedEdge = graph.addEdge(ids[i], ids[i+1], (rand()%50)+1);
-//        if(addedEdge){
-//            std::cout << "yes" << std::endl;
-//        } else {
-//            std::cout << "no" << std::endl;
-//        }
-//    }
-//
-//    std::cout << "\nPrinting adjacency list:" << std::endl;
-//    graph.printAdjList();
-//    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
-//    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
-//
+    std::cout << "\n**TESTING ADDING EDGE**" << std::endl;
+    for(int i =0; i < testdatasize; i++){
+        randIndex = (rand() % testdatasize-1);
+        std::cout << "Attempting to add edge between vertex " << ids[i] << " and vertex " << ids[randIndex] << ". Successful? ";
+        addedEdge = graph.addEdge(ids[i], ids[i+1], (rand()%50)+1);
+        if(addedEdge){
+            std::cout << "yes" << std::endl;
+        } else {
+            std::cout << "no" << std::endl;
+        }
+    }
+
+    std::cout << "\nPrinting adjacency list:" << std::endl;
+    graph.printAdjList();
+    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
     // ================== ================== REMOVING EDGE ================== ==================
 
-//    std::cout << "\nRemoving Edge" << std::endl;
-//    std::cout << "Attempting to remove edge between vertex " << ids[0] << " and vertex " << ids[1] << ". Successful? ";
-//    didRemove = graph.removeEdge(ids[0], ids[1]);
-//    if(didRemove){
-//        std::cout << "yes" << std::endl;
-//    } else {
-//        std::cout << "no" << std::endl;
-//    }
-//    std::cout << "Attempting to remove edge between vertex " << ids[1] << " and vertex " << ids[2] << ". Successful? ";
-//    didRemove = graph.removeEdge(ids[1], ids[2]);
-//    if(didRemove){
-//        std::cout << "yes" << std::endl;
-//    } else {
-//        std::cout << "no" << std::endl;
-//    }
-//
-//    std::cout << "\nPrinting adjacency list:" << std::endl;
-//    graph.printAdjList();
-//    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
-//    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
-//
+    std::cout << "\nRemoving Edge" << std::endl;
+    std::cout << "Attempting to remove edge between vertex " << ids[0] << " and vertex " << ids[1] << ". Successful? ";
+    didRemove = graph.removeEdge(ids[0], ids[1]);
+    if(didRemove){
+        std::cout << "yes" << std::endl;
+    } else {
+        std::cout << "no" << std::endl;
+    }
+    std::cout << "Attempting to remove edge between vertex " << ids[1] << " and vertex " << ids[2] << ". Successful? ";
+    didRemove = graph.removeEdge(ids[1], ids[2]);
+    if(didRemove){
+        std::cout << "yes" << std::endl;
+    } else {
+        std::cout << "no" << std::endl;
+    }
+
+    std::cout << "\nPrinting adjacency list:" << std::endl;
+    graph.printAdjList();
+    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
     // ================== ================== REMOVING VERTEX ================== ==================
 
-//    std::cout << "\nRemoving specific vertex" << std::endl;
-//    std::cout << "Attempting to remove vertex " << ids[1] << ". Successful? ";
-//    didRemove = graph.removeVertex(ids[1]);
-//    if(didRemove){
-//        std::cout << "yes" << std::endl;
-//    } else {
-//        std::cout << "no" << std::endl;
-//    }
-//
-//    std::cout << "\nPrinting adjacency list:" << std::endl;
-//    graph.printAdjList();
-//    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
-//    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
-//
+    std::cout << "\nRemoving specific vertex" << std::endl;
+    std::cout << "Attempting to remove vertex " << ids[1] << ". Successful? ";
+    didRemove = graph.removeVertex(ids[1]);
+    if(didRemove){
+        std::cout << "yes" << std::endl;
+    } else {
+        std::cout << "no" << std::endl;
+    }
+
+    std::cout << "\nPrinting adjacency list:" << std::endl;
+    graph.printAdjList();
+    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
     // ================== ================== CLEARING GRAPH ================== ==================
 
-//    std::cout << "\n**Clearing the graph**" << std::endl;
-//    graph.clearGraph();
-//
-//    std::cout << "\nPrinting adjacency list:" << std::endl;
-//    graph.printAdjList();
-//    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
-//    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+    std::cout << "\n**Clearing the graph**" << std::endl;
+    graph.clearGraph();
 
+    std::cout << "\nPrinting adjacency list:" << std::endl;
+    graph.printAdjList();
+    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
     // ================== ================== END OF INITIAL TESTS ================== ==================
 
@@ -209,37 +201,95 @@ int main() {
     std::cout << "\n**TESTING ALL METHODS**" << std::endl;
     for(int i =0; i < 10; i++){
         // Picks random index
+        std::vector<int> edgeVecOne = {}, edgeVecTwo = {}, usedIds = {};
         rNumIndex = (rand() % testdatasize);
         rNumCase = (rand()%5)+1;
-        std::cout<<"\nIteration: " << iterationCount << std::endl;
+        std::cout<<"\nIteration: " << iterationCount;
 
         switch(rNumCase){
             case 1: // ADD VERTEX
-                std::cout << "case 1" << std::endl;
-
+                std::cout << " case 1" << std::endl;
+                didInsert = graph.addVertex(ids[rNumIndex], &strs[rNumIndex]);
+                usedIds.push_back(ids[rNumIndex]);
+                std::cout << "insert of vertex with id " << ids[rNumIndex] << " successful? ";
+                if(didInsert){
+                    std::cout << "yes" << std::endl;
+                } else {
+                    std::cout << "no" << std::endl;
+                }
+                std::cout << "\nPrinting adjacency list:" << std::endl;
+                graph.printAdjList();
+                std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+                std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
                 break;
 
             case 2: // ADD EDGE
-                std::cout << "case 2" << std::endl;
-
+                std::cout << " case 2" << std::endl;
+                addedEdge = graph.addEdge(usedIds[rNumIndex], usedIds[rNumIndex+1], (rand()%99)+1);
+                std::cout << "Attempting to add edge between vertex " << ids[rNumIndex] << " and vertex " << ids[rNumIndex+1] << ". Successful? ";
+                if(addedEdge){
+                    edgeVecOne.push_back(ids[rNumIndex]);
+                    edgeVecTwo.push_back(ids[rNumIndex+1]);
+                    std::cout << "yes" << std::endl;
+                } else {
+                    std::cout << "no" << std::endl;
+                }
+                std::cout << "\nPrinting adjacency list:" << std::endl;
+                graph.printAdjList();
+                std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+                std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
                 break;
 
             case 3: // REMOVE VERTEX
-                std::cout << "case 3" << std::endl;
-
+                std::cout << " case 3" << std::endl;
+                didRemove = graph.removeVertex(usedIds[rNumIndex]);
+                std::cout << "Attempting to remove vertex " << ids[rNumIndex] << ". Successful? ";
+                if(didRemove){
+                    std::cout << "yes" << std::endl;
+                } else {
+                    std::cout << "no" << std::endl;
+                }
+                std::cout << "\nPrinting adjacency list:" << std::endl;
+                graph.printAdjList();
+                std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+                std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
                 break;
 
             case 4: // REMOVE EDGE
-                std::cout << "case 4" << std::endl;
-
+                std::cout << " case 4" << std::endl;
+                didRemove = graph.removeEdge(usedIds[rNumIndex], usedIds[rNumIndex]);
+                if(didRemove){
+                    edgeVecOne.erase(edgeVecOne.begin() + i);
+                    edgeVecTwo.erase(edgeVecTwo.begin() + i);
+                    std::cout << "yes" << std::endl;
+                } else {
+                    std::cout << "no" << std::endl;
+                }
+                std::cout << "\nPrinting adjacency list:" << std::endl;
+                graph.printAdjList();
+                std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+                std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
                 break;
 
             case 5: // FIND VERTEX DATA
-                std::cout << "case 5" << std::endl;
+                std::cout << " case 5" << std::endl;
+                gotVertex = graph.getVertex(usedIds[rNumIndex], tempData);
+                if(gotVertex){
+                    std::cout << "Yes. Got vertex: " << tempData.id << " : " << tempData.data << std::endl;
+                } else {
+                    std::cout << "no" << std::endl;
+                }
                 break;
         }
         iterationCount++;
     }
+
+    std::cout << "\n================== ================== CLEARING GRAPH ================== ==================" << std::endl;
+    graph.clearGraph();
+    std::cout << "\nPrinting adjacency list:" << std::endl;
+    graph.printAdjList();
+    std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
+    std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
     std::cout << "\n***************\nTESTS CONCLUDED\n***************" << std::endl;
 
