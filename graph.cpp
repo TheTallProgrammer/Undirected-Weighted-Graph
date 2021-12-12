@@ -32,12 +32,6 @@ int Graph::numOfVertices(){return count;} // End of getNumVertices
 
 int Graph::numOfEdges(){return edgeCount;} // End of numOfEdges
 
-int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
-    int edgeW = 0;
-
-    return edgeW;
-} // End of getEdgeWeight
-
 void Graph::printAdjList(){
     for(int i = 0; i < adjListLabels.size(); i++){
         std::cout << "\t|Label ID: " << adjListLabels[i] << "| Vertex: " ;
