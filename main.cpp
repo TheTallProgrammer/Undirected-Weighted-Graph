@@ -60,7 +60,7 @@ int main() {
     // try and put ALL the test data into the graph and show what happens
     // Testing insert/remove methods
     std::cout << "\n**TESTING INSERT/REMOVE**" << std::endl;
-    for(int i =0; i < 1; i++){
+    for(int i =0; i < 2; i++){
         didInsert = graph.addVertex(ids[i], &strs[i]);
         std::cout << "insert of vertex with id " << ids[i] << " successful? ";
         if(didInsert){

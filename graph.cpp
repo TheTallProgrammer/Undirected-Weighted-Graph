@@ -39,7 +39,7 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 } // End of getEdgeWeight
 
 void Graph::printAdjList(){
-    for(int i = 0; i < adjListLabels.size()+1; i++){
+    for(int i = 0; i < adjListLabels.size(); i++){
         std::cout << "\t|Label ID: " << adjListLabels[i] << "| Vertex: " ;
         if(adjList.size() > 0){
             adjList[i].printList();
@@ -61,11 +61,6 @@ bool Graph::addVertex(int id, string *data){
             addedVertex = List.addNode(newVertex->data.id, &newVertex->data.data, newVertex->edge.weight);
             // adjListLabels is a parallel array vector that will determine where a new list goes in the adjList
             adjListLabels.push_back(newVertex->data.id);
-            std::cout << "adjListLabels size " << adjListLabels.size() << std::endl;
-            std::cout << "adjListLabels index 0 " << adjListLabels[0] << std::endl;
-            std::cout << "adjListLabels size " << adjListLabels.size() << std::endl;
-            std::cout << "adjListLabels index 0 " << adjListLabels[1] << std::endl;
-            std::cout << "adjListLabels size " << adjListLabels.size() << std::endl;
             adjList.push_back(List);
         } else {
             addedVertex = newLocation(root, newVertex);
@@ -165,7 +160,6 @@ bool Graph::removeVertex(int id){
         if(idPos > 0){
             idPos = idPos-1;
         }
-        std::cout << "Erasing at idPos: " << idPos << std::endl;
         adjListLabels.erase(adjListLabels.begin() + (idPos));
         count--;
         removedVertex = true;
@@ -194,8 +188,7 @@ void Graph::clearGraph() {
         adjList[i].clearList();
     }
     adjList.clear();
-    adjListLabels.clear();
-    std::cout << "adjListLabels size: " << adjListLabels.size() << adjListLabels[0] << std::endl;
+    adjListLabels.clear();;
     count = 0, edgeCount = 0;
 } // End of clearGraph
 
