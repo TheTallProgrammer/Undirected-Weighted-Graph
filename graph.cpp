@@ -18,7 +18,7 @@ Graph::~Graph(){
 
 bool Graph::isEmpty(){
     bool isEmpty = false;
-    if (count == 0) {isEmpty = true;}
+    if(count == 0){isEmpty = true;}
     return isEmpty;
 } // End of isEmpty
 
@@ -56,7 +56,7 @@ bool Graph::newLocation(Node *root, Node *newVertex) {
     bool containsID = false;
     bool didAdd = false;
     for(int i =0; i < adjListLabels.size(); i++) {
-        if(adjListLabels[i] == newVertex->data.id) {containsID = true;}
+        if(adjListLabels[i] == newVertex->data.id){containsID = true;}
     }
     if(!containsID){
         LinkedList List;
@@ -85,7 +85,7 @@ bool Graph::addEdge(int vertexOneID, int vertexTwoID, int weight){
             vertexTwo = adjList[positionTwo].getNode(vertexTwoID);
             addedEdgeOne = adjList[position].addNode(vertexTwo->data.id, &vertexTwo->data.data, weight);
             addedEdgeTwo = adjList[positionTwo].addNode(vertexOne->data.id, &vertexOne->data.data, weight);
-            if (addedEdgeOne && addedEdgeTwo) {edgeCount++; addedEdges = true;}
+            if(addedEdgeOne && addedEdgeTwo){edgeCount++; addedEdges = true;}
         }
     }
     return addedEdges;
@@ -96,13 +96,13 @@ bool Graph::removeEdge(int vertexOneID, int vertexTwoID){
     int position = 0, positionTwo = 0;
     for(int i = 0; i < adjListLabels.size(); i++){
         if(adjListLabels[i] == vertexOneID){hasVOne = true; position = i;}
-        if(adjListLabels[i] == vertexTwoID) {positionTwo = i;hasVTwo = true;}
+        if(adjListLabels[i] == vertexTwoID){positionTwo = i;hasVTwo = true;}
     }
     if(hasVOne && hasVTwo){
         if(vertexOneID != vertexTwoID) { // Make sure that the two vertices aren't duplicate ids
             removedEdgeOne = adjList[position].deleteNode(vertexTwoID);
             removedEdgeTwo = adjList[positionTwo].deleteNode(vertexOneID);
-            if (removedEdgeTwo && removedEdgeOne) {
+            if(removedEdgeTwo && removedEdgeOne) {
                 if (edgeCount > 0) {edgeCount--;}
                 removedEdges = true;
             }
