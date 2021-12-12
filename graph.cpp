@@ -39,7 +39,7 @@ int Graph::getEdgeWeight(std::pair<int,int> *vertexIds) {
 } // End of getEdgeWeight
 
 void Graph::printAdjList(){
-    for(int i = 0; i < adjListLabels.size(); i++){
+    for(int i = 0; i < adjListLabels.size()+1; i++){
         std::cout << "\t|Label ID: " << adjListLabels[i] << "| Vertex: " ;
         if(adjList.size() > 0){
             adjList[i].printList();
@@ -160,7 +160,8 @@ bool Graph::removeVertex(int id){
         if(idPos > 0){
             idPos = idPos-1;
         }
-        adjListLabels.erase(adjListLabels.begin() + (idPos));
+        adjListLabels.erase(adjListLabels.begin());
+        adjListLabels.erase(adjListLabels.begin());
         count--;
         removedVertex = true;
     }
