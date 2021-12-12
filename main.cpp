@@ -42,6 +42,8 @@ int main() {
     Graph graph;
     // ================== ================== START OF INITIAL TESTS ================== ==================
 
+    std::cout << "\n================== ================== START OF INITIAL TESTS ================== ==================" << std::endl;
+
     // show it is empty by calling getCount and printTable
     std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
@@ -199,7 +201,7 @@ int main() {
 
     randIndex = (rand() % testdatasize);
     // Main testing for loop
-    std::cout << "\n================== ================== TESTING ALL METHODS ================== ==================" << std::endl;
+    std::cout << "\n================== ================== INITIATING LOOP TESTING ================== ==================" << std::endl;
     for(int i =0; i < 10; i++){
         // Picks random index
         std::vector<int> edgeVecOne = {}, edgeVecTwo = {}, usedIds = {};
@@ -222,6 +224,7 @@ int main() {
                 graph.printAdjList();
                 std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
                 std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+                std::cout << "\n================== ================== ================== ==================" << std::endl;
                 break;
 
             case 2: // ADD EDGE
@@ -239,6 +242,7 @@ int main() {
                 graph.printAdjList();
                 std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
                 std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+                std::cout << "\n================== ================== ================== ==================" << std::endl;
                 break;
 
             case 3: // REMOVE VERTEX
@@ -254,6 +258,7 @@ int main() {
                 graph.printAdjList();
                 std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
                 std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+                std::cout << "\n================== ================== ================== ==================" << std::endl;
                 break;
 
             case 4: // REMOVE EDGE
@@ -270,6 +275,7 @@ int main() {
                 graph.printAdjList();
                 std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
                 std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+                std::cout << "\n================== ================== ================== ==================" << std::endl;
                 break;
 
             case 5: // FIND VERTEX DATA
@@ -280,6 +286,7 @@ int main() {
                 } else {
                     std::cout << "no" << std::endl;
                 }
+                std::cout << "\n================== ================== ================== ==================" << std::endl;
                 break;
         }
         iterationCount++;
