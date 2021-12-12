@@ -202,7 +202,7 @@ int main() {
     randIndex = (rand() % testdatasize);
     // Main testing for loop
     std::cout << "\n================== ================== INITIATING LOOP TESTING ================== ==================" << std::endl;
-    for(int i =0; i < 100; i++){
+    for(int i =0; i < 500; i++){
         // Picks random index
         rNumIndex = (rand() % testdatasize);
         rNumIndex2 = (rand() % testdatasize);
@@ -276,6 +276,7 @@ int main() {
 
             case 5: // FIND VERTEX DATA
                 std::cout << " case 5" << std::endl;
+                std::cout << "\nFinding specific vertex of id " << ids[rNumIndex] << " Successful? ";
                 gotVertex = graph.getVertex(ids[rNumIndex], tempData);
                 if(gotVertex){
                     std::cout << "Yes. Got vertex: " << tempData.id << " : " << tempData.data << std::endl;

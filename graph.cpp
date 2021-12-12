@@ -134,7 +134,6 @@ bool Graph::removeEdge(int vertexOneID, int vertexTwoID){
         }
     }
     return removedEdges;
-
 } // End of removeEdge
 
 bool Graph::removeVertex(int id){
@@ -154,7 +153,10 @@ bool Graph::removeVertex(int id){
         }
         adjList[idPos].clearList();
         for(int i =0 ; i < adjList.size(); i++){
-            adjList[i].deleteNode(id);
+            removedVertex = adjList[i].deleteNode(id);
+            if(removedVertex){
+                edgeCount--;
+            }
         }
         // Erase the specific vertex that the label is at
         adjListLabels.erase(adjListLabels.begin() + idPos);
