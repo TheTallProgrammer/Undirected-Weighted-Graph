@@ -96,15 +96,17 @@ bool Graph::addEdge(int vertexOneID, int vertexTwoID, int weight){
     }
     // This means that an edge can be created because the two vertices exist
     if(hasVOne && hasVTwo){
-        Node *vertexOne;
-        Node *vertexTwo;
-        vertexOne = adjList[position].getNode(vertexOneID);
-        vertexTwo = adjList[positionTwo].getNode(vertexTwoID);
-        addedEdgeOne = adjList[position].addNode(vertexTwo->data.id, &vertexTwo->data.data, weight);
-        addedEdgeTwo = adjList[positionTwo].addNode(vertexOne->data.id, &vertexOne->data.data, weight);
-        if(addedEdgeOne && addedEdgeTwo){
-            edgeCount++;
-            addedEdges = true;
+        if(vertexOneID != vertexTwoID) { // Make sure that the two vertices aren't duplicate ids
+            Node *vertexOne;
+            Node *vertexTwo;
+            vertexOne = adjList[position].getNode(vertexOneID);
+            vertexTwo = adjList[positionTwo].getNode(vertexTwoID);
+            addedEdgeOne = adjList[position].addNode(vertexTwo->data.id, &vertexTwo->data.data, weight);
+            addedEdgeTwo = adjList[positionTwo].addNode(vertexOne->data.id, &vertexOne->data.data, weight);
+            if (addedEdgeOne && addedEdgeTwo) {
+                edgeCount++;
+                addedEdges = true;
+            }
         }
     }
     return addedEdges;
@@ -148,7 +150,7 @@ bool Graph::removeVertex(int id){
         }
     }
     if(containsID){
-        edges = adjList[idPos].getCount() - 1;
+        edges = adjList[idPos].getCount()-1;
         edgeCount = edgeCount - edges;
         adjList[idPos].clearList();
         for(int i =0 ; i < adjList.size(); i++){

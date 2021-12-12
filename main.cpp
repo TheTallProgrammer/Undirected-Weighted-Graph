@@ -25,18 +25,10 @@ int main() {
     cout << endl;
 
     srand(time(NULL));
-
-    bool didInsert;
-    bool didRemove = false;
+    bool didInsert, didRemove, gotVertex, addedEdge;
     std::string data;
-    int rNumCase = 0;
-    int rNumIndex = 0, rNumIndex2 = 0;
-    int id = 0;
-    int iterationCount = 1;
+    int rNumCase = 0, rNumIndex = 0, rNumIndex2 = 0, iterationCount = 1;
     Data tempData;
-    bool gotVertex = false;
-    int randIndex;
-    bool addedEdge = false;
 
     // create your graph object here
     Graph graph;
@@ -54,10 +46,9 @@ int main() {
 
     // ================== ================== STARTING MAIN TEST LOOP ================== ==================
 
-    randIndex = (rand() % testdatasize);
     // Main testing for loop
     std::cout << "\n================== ================== INITIATING LOOP TESTING ================== ==================" << std::endl;
-    for(int i =0; i < 300; i++){
+    for(int i =0; i < 50; i++){
         // Picks random index
         rNumIndex = (rand() % testdatasize);
         rNumIndex2 = (rand() % testdatasize);
@@ -115,8 +106,7 @@ int main() {
 
             case 4: // REMOVE EDGE
                 std::cout << " case 4" << std::endl;
-                std::cout << "ID SIZE: " << testdatasize << ", rNumIndex: " << rNumIndex << ", rNumIndex2: " << rNumIndex2 << ", adjList size: " << graph.numOfVertices() << std::endl;
-                std::cout << "Attempting to remove edge between vertex " << ids[rNumIndex] << " and vertex " << ids[rNumIndex2] << ". Successful? " << std::endl;
+                std::cout << "Attempting to remove edge between vertex " << ids[rNumIndex] << " and vertex " << ids[rNumIndex2] << ". Successful? ";
                 didRemove = graph.removeEdge(ids[rNumIndex], ids[rNumIndex2]);
                 if(didRemove){
                     std::cout << "yes" << std::endl;
