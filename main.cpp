@@ -199,12 +199,12 @@ int main() {
 
     randIndex = (rand() % testdatasize);
     // Main testing for loop
-    std::cout << "\n**TESTING ALL METHODS**" << std::endl;
+    std::cout << "\n================== ================== TESTING ALL METHODS ================== ==================" << std::endl;
     for(int i =0; i < 10; i++){
         // Picks random index
         std::vector<int> edgeVecOne = {}, edgeVecTwo = {}, usedIds = {};
         rNumIndex = (rand() % testdatasize);
-        rNumCase = (rand()%5)+1;
+        rNumCase = (rand()%1)+1;
         std::cout<<"\nIteration: " << iterationCount;
 
         switch(rNumCase){
@@ -292,7 +292,7 @@ int main() {
     std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
-    std::cout << "\n***************\nTESTS CONCLUDED\n***************" << std::endl;
+    std::cout << "\n================== ================== TESTS CONCLUDED ================== ==================" << std::endl;
 
 
     return 0;
