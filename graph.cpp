@@ -160,8 +160,8 @@ bool Graph::removeVertex(int id){
         if(idPos > 0){
             idPos = idPos-1;
         }
-        adjListLabels.erase(adjListLabels.begin());
-        adjListLabels.erase(adjListLabels.begin());
+        // Erase the specific vertex that the label is at 
+        adjListLabels.erase(adjListLabels.begin() + idPos);
         count--;
         removedVertex = true;
     }
