@@ -154,12 +154,9 @@ bool Graph::removeVertex(int id){
         edges = adjList[idPos].getCount() - 1;
         edgeCount = edgeCount - edges;
         adjList[idPos].clearList();
-//        if(idPos > 0){
-//            idPos = idPos-1;
-//        }
         // Erase the specific vertex that the label is at
         adjListLabels.erase(adjListLabels.begin() + idPos);
-//        adjListLabels.erase(adjListLabels.begin() + idPos-1);
+        adjList.erase(adjList.begin()+idPos);
         count--;
         removedVertex = true;
     }

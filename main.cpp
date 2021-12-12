@@ -158,8 +158,8 @@ int main() {
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
 
     std::cout << "\nRemoving specific vertex" << std::endl;
-    std::cout << "Attempting to remove vertex " << ids[2] << ". Successful? " << std::endl;
-    didRemove = graph.removeVertex(ids[2]);
+    std::cout << "Attempting to remove vertex " << ids[1] << ". Successful? " << std::endl;
+    didRemove = graph.removeVertex(ids[1]);
     if(didRemove){
         std::cout << "yes" << std::endl;
     } else {
@@ -170,6 +170,7 @@ int main() {
     graph.printAdjList();
     std::cout << "\nCurrent amount of vertices: " << graph.numOfVertices() << std::endl;
     std::cout << "Current amount of edges: " << graph.numOfEdges() << std::endl;
+
 
 
 
